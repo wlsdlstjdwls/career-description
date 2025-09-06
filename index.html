@@ -45,7 +45,7 @@
     }
     .hero h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
     .hero .subtitle { color: var(--muted); margin-top: 6px; }
-    .hero .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .hero .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 3px; }
     .chip {
       border: 1px solid rgba(2,6,23,.08); background: #fff; border-radius: 999px;
       padding: 4px 10px; font-size: 12px; color: var(--muted);
@@ -60,7 +60,7 @@
     .meta { color: var(--muted); }
     .badges { display: flex; flex-wrap: wrap; gap: 8px; }
     .badge { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; }
-    ul { margin: 8px 0 16px 18px; }
+    ul { margin: 8px 0 16px 0px; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .section { margin-top: 18px; }
@@ -84,6 +84,12 @@
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.9em; color: var(--muted); }
       .print-only { display: block; }
     }
+    .skills {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -94,7 +100,7 @@
         <a href="#skills">스킬</a>
         <a href="#experience">경력</a>
         <a href="#projects">프로젝트</a>
-        <a href="#links">링크</a>
+        <a href="#sideprojects">사이드 프로젝트</a>
       </div>
       <div>
         <button class="btn" onclick="window.print()">PDF</button>
@@ -103,16 +109,35 @@
   </div>
 
   <main class="container">
-    <!-- Hero -->
     <section id="about" class="hero">
       <h1>김성진 <span class="meta">(SEONGJIN KIM)</span></h1>
-      <div class="subtitle">Backend · Java / Spring / JavaScript / Oracle · E-commerce</div>
-      <div class="chips">
-        <span class="chip">상품/프로모션</span>
-        <span class="chip">주문C/S</span>
-        <span class="chip">CTI</span>
-        <span class="chip">Spring Batch</span>
+      <div class="subtitle">Backend · e-커머스</div>
+      
+      <div class="skills">
+        <strong>주요 기술</strong>
+        <div class="chips">
+          <span class="chip">Java</span>
+          <span class="chip">Spring/Spring Boot</span>
+          <span class="chip">Spring Batch</span>
+          <span class="chip">Oracle</span>
+          <span class="chip">JQuery</span>
+          <span class="chip">Git</span>
+          <span class="chip">SVN</span>
+        </div>
       </div>
+
+      <div class="skills">
+        <strong>서브 기술</strong>
+        <div class="chips">
+          <span class="chip">JSP</span>
+          <span class="chip">JPA</span>
+          <span class="chip">QueryDSL</span>
+          <span class="chip">React</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+
       <div class="kpi">
         <div class="item"><div class="dt">화면 로딩 시간</div><div class="dd">5초 → 2초</div></div>
         <div class="item"><div class="dt">프로모션 p95</div><div class="dd">480 → 280ms</div></div>
@@ -120,23 +145,24 @@
       </div>
     </section>
 
-    <!-- Main grid -->
     <section class="grid">
-      <!-- Left column -->
       <div class="col">
         <div class="card section">
           <h2>요약</h2>
           <p>
-            전자상거래 도메인의 주문·정산·프로모션 백엔드 개발을 담당해온 개발자입니다.
-            SQL·배치 최적화와 CI/CD 자동화를 통해 <strong>정량 성과</strong>를 만들어왔습니다.
+            e-커머스 상품·프로모션·주문 백엔드 프로젝트 개발을 담당해온 개발자입니다.<br />
+            5년간 Java/Spring, Oracle 기반 백오피스 시스템 개발 및 운영 경험이 있습니다.<br />
           </p>
         </div>
 
         <div id="experience" class="card section">
           <h2>경력 <span class="meta">| 백엔드 개발자</span></h2>
 
-          <h3>커머스웨어 (파견: 신세계 라이브쇼핑)</h3>
-          <p class="meta">2019.01 — 2024.11 (5년 10개월) · Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins</p>
+          <h3>커머스웨어</h3>
+          <p class="meta">
+            2019.01 — 2024.11 (5년 10개월) <br />
+            Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins
+          </p>
           <ul>
             <li>상품/주문/클레임/프로모션 백오피스 개발 및 운영</li>
             <li>CTI 인터페이스 신규 개발 및 운영</li>
@@ -148,10 +174,9 @@
         <div id="projects" class="card section">
           <h2>대표 프로젝트</h2>
 
-          <!-- 카드 즉시할인 -->
           <div class="project">
-            <h3>카드 즉시할인 프로모션 
-              <span class="meta">2024.01 — 2024.10 (9개월)</span>
+            <h3>카드즉시할인 프로모션 
+              <span class="meta">2024.01 — 2024.07 (7개월)</span>
             </h3>
             <div class="highlight">
               <p><strong>프로젝트 개요</strong><br />
@@ -167,48 +192,127 @@
               </p>
 
               <p><strong>성과</strong><br />
-              • <em>오류율 0.30% → 0.05%</em> (▲83% 개선)  <br />
-              • 프로모션 API 응답속도 <em>p95 480ms → 280ms</em> (▲42% 개선)  <br />
-              • 런칭 초기 1만+ 주문 처리 시 <em>장애 없음</em>
+              • 프로젝트 성공적 완료 및 안정적 운영 중  <br />
+              • 고객 즉시 할인 체감으로 구매 전환율 상승 기대  <br />
+              • 쇼핑몰의 세금 경정/운영비용 절감 기대
               </p>
             </div>
           </div>
 
-          <!-- 방송 정산 배치 -->
-          <div class="project" style="margin-top:16px;">
-            <h3>방송 프로그램 정산 배치</h3>
+          <div class="project">
+            <h3>전시 모듈화
+              <span class="meta">2023.8 — 2023.10(3개월)</span>
+            </h3>
             <div class="highlight">
-              <p><strong>문제</strong><br />
-              대용량 집계 쿼리 Temp spill로 인해 일간 정산에 12시간 이상 소요</p>
+              <p><strong>프로젝트 개요</strong><br />
+              • 이벤트 페이지, 특정 전시 페이지 등 정형화되지 않은 전시페이지는 기존에 매번 신규 개발 필요 <br />
+              • 개발자 리소스 소모 증가, 협력 업체도 즉각적인 전시 변경이 어려워 불편 발생<br />
+              • 전시 모듈화를 통해 페이지를 컴포넌트 단위로 조합 및 업체가 화면 구성할 수 있도록 개선
+              </p>
 
-              <p><strong>행동</strong><br />
-              • 파티셔닝 적용, 병렬도 최적화  
-              • 통계 갱신 자동화 스케줄링</p>
+              <p><strong>내 역할</strong><br />
+              • 백오피스 관리 기능 개발: 전시 컴포넌트 CRUD API 개발
+              </p>
 
               <p><strong>성과</strong><br />
-              • 일간 정산 시간 <em>12h → 3h</em> (▲75% 단축)  
-              • <em>운영 장애 0건</em> 유지</p>
+              • 반복적인 개발 리소스 절감 및 전시화면 리드타임 단축
+              </p>
             </div>
           </div>
-        </div>
 
+          <div class="project">
+            <h3>PC몰 리뉴얼
+              <span class="meta">2023.3 — 2023.6(4개월)</span>
+            </h3>
+            <div class="highlight">
+              <p><strong>프로젝트 개요</strong><br />
+              • 기존 PC몰 일부 화면은 응답 속도 지연(최대 4~5초) 개선<br />
+              • 최신 UI/UX 트렌드 반영을 통해 사용자 경험 개선
+              </p>
+
+              <p><strong>내 역할</strong><br />
+              • 쿼리 속도 개선<br />
+              • 캐싱 적용: Spring Cache 기능을 활용하여 빈번한 조회 데이터 캐싱<br />
+              • UI/UX 개선
+              </p>
+
+              <p><strong>성과</strong><br />
+              • 성능 개선: 주요 화면 응답 속도 3초 → 1초로 단축<br />
+              • 사용자 경험 향상: 최신 디자인 적용으로 PC 이탈률 감소 기대
+              </p>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>시스템 고도화
+              <span class="meta">2020.1 — 2021.2(1년 2개월)</span>
+            </h3>
+            <div class="highlight">
+              <p><strong>프로젝트 개요</strong><br />
+              • 기존 백오피스 업무 시스템은 Adobe Flex 기반으로 구형되어 있어 IE브라우저 종료로 인해 전환 필요<br />
+              • 구식 UI/UX 및 느린 응답 속도 개선 필요<br />
+              • Javascript Framework(ExtJS)로 전환 및 업무 고도화 진행
+              </p>
+
+              <p><strong>내 역할</strong><br />
+              • 코어/공통 모듈 담당 (AA 역할)<br />
+              &nbsp;&nbsp;- 프로젝트 환경 구성 및 핵심 공통 로직 전환<br />
+              &nbsp;&nbsp;- 오류 또는 기술 문의 창구 역할 수행, R&D센터와 협업<br />
+              • 인프라/운영 환경 지원<br />
+              &nbsp;&nbsp;- Jenkins 기반 CI/CD 환경 설정 및 서버 배포 지원 (배포 자동화)<br />
+              &nbsp;&nbsp;- 기존 인프라 구조 파악 및 신규 시스템 배포 파이프라인 정립<br />
+              • 품질 확보<br />
+              &nbsp;&nbsp;- 공통 기능/코어 모듈 검증
+              </p>
+
+              <p><strong>성과</strong><br />
+              • 플렉스 기반 레거시 시스템 JS 프레임워크로 전환 성공<br />
+              • 신규 시스템을 안정적으로 오픈 및 현재까지 무중단 운영 중<br />
+              • 프로젝트 범위가 방대했음에도 전환 완료 및 전반적 업무 프로세스 개선에 기여
+              </p>
+            </div>
+          </div>
+
+          <div class="project">
+            <h3>호주 홈쇼핑 시스템 구축 및 운영
+              <span class="meta">2019.3 — 2019.12(10개월)</span>
+            </h3>
+            <div class="highlight">
+              <p><strong>프로젝트 개요</strong><br />
+              • 회사 입사 후 첫 해외 출장 프로젝트, 호주 신규 홈쇼핑 시스템 구축
+              </p>
+
+              <p><strong>내 역할</strong><br />
+              • CTI(전화 연동) 인터페이스 신규 개발<br />
+              &nbsp;&nbsp;- 기존 DirectX 기반 솔루션을 Javascript 이벤트 호출 방식으로 변경<br />
+              &nbsp;&nbsp;- 호주에서 현지 테스트 및 수정 → 안정적 오픈 달성<br />
+              • 부가 업무 지원<br />
+              &nbsp;&nbsp;- 일부 화면 수정, SQL 쿼리 작성, 번역본 적용 및 다국어 전환 검증<br />
+              &nbsp;&nbsp;- 초기 운영 지원
+              </p>
+
+              <p><strong>성과</strong><br />
+              • CTI 인터페이스 신규 구축으로 전화 주문 업무 정상 오픈 → 실제 고객 주문 처리 성공<br />
+              • 신규 홈쇼핑 시스템 해외 런칭 기여 및 해외 경험<br />
+              • 시스템 전반에 대한 이해도와 문제 해결 능력 향상
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <!-- Right column -->
       <aside class="col">
         <div class="card section">
           <h2>연락처</h2>
           <div class="divider"></div>
           <div class="badges">
-            <span class="badge">Email</span><a href="mailto:example@email.com">example@email.com</a>
+            <span class="badge">Email</span><a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a>
           </div>
-          <div class="badges" style="margin-top:8px;">
-            <span class="badge">GitHub</span><a href="https://github.com/username">github.com/username</a>
-          </div>
-          <div class="badges" style="margin-top:8px;">
-            <span class="badge">Notion</span><a href="https://notion.example">notion.example</a>
-          </div>
-          <p class="meta" style="margin-top:10px;">Tokyo, JP</p>
+          
+          <!-- <div class="badges" style="margin-top:8px;">
+            <span class="badge">Notion</span><a href=""></a>
+          </div> -->
         </div>
 
         <div id="skills" class="card section">
@@ -216,18 +320,23 @@
           <div class="divider"></div>
           <h3>Backend</h3>
           <div class="badges">
-            <span class="badge">Java</span><span class="badge">Spring (MVC/Boot)</span>
-            <span class="badge">REST API</span><span class="badge">Batch</span>
+            <span class="badge">Java</span>
+            <span class="badge">Spring (MVC/Boot)</span>
+            <span class="badge">Batch</span>
+            <span class="badge">REST API</span>
+            <span class="badge">Javascript ES5/ES6~</span>
           </div>
           <h3>Data / Infra</h3>
           <div class="badges">
-            <span class="badge">Oracle · PL/SQL</span><span class="badge">MyBatis / JPA</span>
-            <span class="badge">Jenkins</span><span class="badge">AWS (EC2/S3/RDS)</span>
+            <span class="badge">Oracle · PL/SQL</span>
+            <span class="badge">MyBatis / JPA / QueryDSL</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">AWS (EC2)</span>
           </div>
           <h3>Etc.</h3>
           <div class="badges">
-            <span class="badge">React (기초)</span><span class="badge">Tailwind</span>
-            <span class="badge">Linux</span><span class="badge">Confluence/Jira</span>
+            <span class="badge">React</span>
+            <span class="badge">Linux</span>
           </div>
         </div>
 
@@ -235,20 +344,43 @@
           <h2>교육 · 자격</h2>
           <div class="divider"></div>
           <ul>
-            <li>JLPT N2 (2024)</li>
-            <li>AWS SAA (예정)</li>
+            <li>일본어 능력 시험 - JLPT N3 (2025)</li>
+            <li>정보처리기사 (2018)</li>
+            <li>Java&Python 기반 응용SW 개발자 양성과정 (2018, 7개월)</li>
           </ul>
         </div>
 
-        <div id="links" class="card section">
-          <h2>링크</h2>
-          <div class="divider"></div>
-          <ul>
-            <li>GitHub · <a href="https://github.com/username">https://github.com/username</a></li>
-            <li>Notion · <a href="https://notion.example">https://notion.example</a></li>
-            <li>Demo · <a href="#">(옵션) 데모 링크</a></li>
-          </ul>
+        <div id="sideprojects" class="card section">
+          <h2>사이드 프로젝트</h2>
+
+          <div class="project">
+            <h3>카드즉시할인 프로모션 
+              <span class="meta">2024.01 — 2024.07 (7개월)</span>
+            </h3>
+            <div class="highlight">
+              <p><strong>프로젝트 개요</strong><br />
+              기존 카드 청구할인의 한계를 개선하기 위해 즉시할인 프로세스 신규 개발.  <br />
+              고객은 결제 단계에서 즉시 할인 체감 → 구매 전환율 상승,  
+              쇼핑몰은 사후 세금 경정/운영비용 절감<br /> → 매출 기여.
+              </p>
+
+              <p><strong>내 역할</strong><br />
+              • 백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가  <br />
+              • 다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화  <br />
+              • 유닛/통합 테스트 케이스 작성, 안정성 확보
+              </p>
+
+              <p><strong>성과</strong><br />
+              • 프로젝트 성공적 완료 및 안정적 운영 중  <br />
+              • 고객 즉시 할인 체감으로 구매 전환율 상승 기대  <br />
+              • 쇼핑몰의 세금 경정/운영비용 절감 기대
+              </p>
+            </div>
+          </div>
+
+
         </div>
+
       </aside>
     </section>
 
