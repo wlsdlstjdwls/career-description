@@ -3,166 +3,151 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>김성진 | 경력기술서</title>
-  <meta name="description" content="E-커머스 백엔드 개발자 김성진 경력기술서 (Java, Spring, Oracle)" />
-  <meta property="og:title" content="김성진 | 경력기술서" />
-  <meta property="og:description" content="Java/Spring/Oracle 기반 백엔드 경력 기술서" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-image.png" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <title>김성진 | 서버 백엔드 엔지니어</title>
   <style>
-    :root {
-      --bg: #f7f9fd;
-      --paper: #ffffff;
-      --text: #1f2937;       /* slate-800 */
-      --muted: #64748b;      /* slate-500 */
-      --accent: #2563eb;     /* blue-600 */
-      --accent-2: #06b6d4;   /* cyan-500 */
-      --border: #e5e7eb;     /* gray-200 */
-      --ring: rgba(37, 99, 235, .1);
-      --shadow: 0 8px 24px rgba(15, 23, 42, .08);
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font: 15px/1.7 Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans KR', Arial, sans-serif;
-    }
-    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
-    .topbar {
-      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(6px);
-      background: rgba(247,249,253,.6); border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 24px; }
-    .nav a { text-decoration: none; color: var(--muted); font-weight: 500; margin-right: 14px; }
-    .nav a:hover { color: var(--text); }
-    .btn { padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; background: #fff; cursor: pointer; }
-    .btn:hover { background: #f8fafc; }
-    .hero {
-      background: linear-gradient(135deg, #ffffff, #f3f7ff);
-      border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow);
-      padding: 28px; margin-top: 18px;
-    }
-    .hero h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
-    .hero .subtitle { color: var(--muted); margin-top: 6px; }
-    .hero .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 3px; }
-    .chip {
-      border: 1px solid rgba(2,6,23,.08); background: #fff; border-radius: 999px;
-      padding: 4px 10px; font-size: 12px; color: var(--muted);
-    }
-    .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; margin-top: 16px; }
-    .card {
-      background: var(--paper); border: 1px solid var(--border); border-radius: 16px;
-      padding: 18px; box-shadow: var(--shadow);
-    }
-    h2 { font-size: 18px; font-weight: 700; margin: 0 0 10px 0; }
-    h3 { font-size: 15px; margin: 14px 0 6px 0; }
-    .meta { color: var(--muted); }
-    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
-    .badge { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; }
-    ul { margin: 8px 0 16px 0px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .section { margin-top: 18px; }
-    .divider { height: 1px; background: var(--border); margin: 12px 0; }
-    .highlight {
-      background: linear-gradient(90deg, rgba(37,99,235,.08), rgba(6,182,212,.08));
-      border: 1px solid rgba(148,163,184,.35);
-      padding: 10px 12px; border-radius: 12px; font-size: 14px; color: var(--text);
-    }
-    .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-    .kpi .item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px; text-align: center; }
-    .kpi .dt { font-size: 11px; color: var(--muted); }
-    .kpi .dd { font-size: 18px; font-weight: 800; color: var(--accent); }
-    .foot { text-align: center; color: var(--muted); font-size: 13px; margin: 24px 0 8px 0; }
-    .print-only { display: none; }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
-    @media print {
-      .topbar, .print-hide { display: none !important; }
-      .container { padding: 8px 16px; }
-      .hero { box-shadow: none; }
-      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.9em; color: var(--muted); }
-      .print-only { display: block; }
-    }
-    .skills {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
+    :root{ --text:#1f2937; --muted:#64748b; --accent:#2563eb; --border:#e5e7eb; }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{ margin:0; background:#fff; color:var(--text); font:15px/1.75 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; -webkit-font-smoothing:antialiased }
+    .wrap{ max-width:900px; margin:0 auto; padding:32px 20px }
+    a{ color:var(--accent); text-decoration:none }
+
+    /* Header */
+    header{ margin-bottom:18px }
+    .headbar{ display:flex; align-items:center; justify-content:space-between; gap:16px }
+    .headtitle{ text-align:left }
+    header h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-.01em }
+    .title{ color:var(--muted); font-size:16px; margin-top:6px }
+    .contact{ font-size:14px; margin-top:6px }
+
+    /* Print button */
+    .btn{ border:1px solid var(--border); background:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; font-size:14px }
+    .btn:hover{ background:#f8fafc }
+
+    /* Headings */
+    h2{ font-size:20px; margin:28px 0 14px; border-bottom:2px solid var(--accent); padding-bottom:6px }
+    h3{ font-size:16px; margin:0 0 4px; font-weight:600 }
+    .meta{ color:var(--muted); font-size:14px }
+
+    /* Two-column rows */
+    .row{ display:flex; gap:18px; margin:18px 0 }
+    .row-left{ flex:0 0 160px; text-align:right; color:var(--muted); font-size:14px; padding-right:12px }
+    .row-right{ flex:1 }
+
+    /* Lists / tags */
+    ul{ margin:8px 0 0 18px }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px }
+    .tag{ background:#f3f6fb; color:#334155; border-radius:999px; padding:4px 10px; font-size:13px }
+
+    /* Subsection titles */
+    .subttl{ font-weight:600; color:var(--accent); margin-top:10px }
+
+    @media print{
+      body{ font-size:13px }
+      .wrap{ padding:0 }
+      a[href^="http"]:after{ content:" (" attr(href) ")"; font-size:.85em; color:#555 }
+      .row{ break-inside:avoid }
+      .print-hide{ display:none !important }
     }
   </style>
 </head>
 <body>
-  <div class="topbar print-hide">
-    <div class="nav container">
-      <div>
-        <a href="#about">소개</a>
-        <a href="#skills">스킬</a>
-        <a href="#experience">경력</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#sideprojects">사이드 프로젝트</a>
-      </div>
-      <div>
-        <button class="btn" onclick="window.print()">PDF</button>
-      </div>
-    </div>
-  </div>
-
-  <main class="container">
-    <section id="about" class="hero">
-      <h1>김성진 <span class="meta">(SEONGJIN KIM)</span></h1>
-      <div class="subtitle">Backend · e-커머스</div>
-      
-      <div class="skills">
-        <strong>주요 기술</strong>
-        <div class="chips">
-          <span class="chip">Java</span>
-          <span class="chip">Spring/Spring Boot</span>
-          <span class="chip">Spring Batch</span>
-          <span class="chip">Oracle</span>
-          <span class="chip">JQuery</span>
-          <span class="chip">Git</span>
-          <span class="chip">SVN</span>
+  <div class="wrap">
+    <header>
+      <div class="headbar">
+        <div class="headtitle">
+          <h1>김성진 (SEONGJIN KIM)</h1>
+          <div class="title">Backend · E-commerce</div>
+          <div class="contact">
+            Email: <a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a><br />
+            Web: <a href="https://diary-developer.tistory.com" target="_blank">https://diary-developer.tistory.com</a><br />
+            GitLab: <a href="https://gitlab.com/deepit-labs" target="_blank">https://gitlab.com/deepit-labs</a>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="window.print()">PDF로 저장</button>
         </div>
       </div>
+    </header>
 
-      <div class="skills">
-        <strong>서브 기술</strong>
-        <div class="chips">
-          <span class="chip">JSP</span>
-          <span class="chip">JPA</span>
-          <span class="chip">QueryDSL</span>
-          <span class="chip">React</span>
-          <span class="chip">AWS</span>
-          <span class="chip">Linux</span>
+    <!-- 소개 -->
+    <section>
+      <h2>소개</h2>
+      <p>
+        E-커머스 백엔드 전문 개발자로서 <strong>상품·주문·프로모션·클레임</strong> 등 핵심 도메인을 5년간 설계·개발·운영했습니다.<br />
+        <strong>Java/Spring · Oracle</strong> 기반 대규모 백오피스 경험을 바탕으로, <strong>성능 최적화·안정성 확보·운영 자동화(CI/CD)</strong>를 통해 비즈니스 성과로 연결되는 개발을 지향합니다.<br />
+        대규모 트래픽 환경의 최적화, 신규 서비스 론칭, 레거시 전환 프로젝트를 폭넓게 수행했습니다. <br />
+      </p>
+    </section>
+
+    <!-- 핵심 기술 -->
+    <section>
+      <h2>핵심 기술</h2>
+      <!-- <div class="row">
+        <div class="row-left">주요 기술</div>
+        <div class="row-right">
+          <div class="chips">
+            <span class="tag">Java</span>
+            <span class="tag">Spring MVC/Spring Boot</span>
+            <span class="tag">Spring Batch</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">JQuery</span>
+            <span class="tag">Git</span>
+            <span class="tag">SVN</span>
+          </div>
         </div>
       </div>
-
-      <div class="kpi">
-        <div class="item"><div class="dt">화면 로딩 시간</div><div class="dd">5초 → 2초</div></div>
-        <div class="item"><div class="dt">프로모션 p95</div><div class="dd">480 → 280ms</div></div>
-        <div class="item"><div class="dt">오류율</div><div class="dd">0.30% → 0.05%</div></div>
+      <div class="row">
+        <div class="row-left">서브 기술</div>
+        <div class="row-right">
+          <div class="chips">
+            <span class="tag">JSP</span>
+            <span class="tag">JPA</span>
+            <span class="tag">QueryDSL</span>
+            <span class="tag">React</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Linux</span>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="row-left">SKILL</div>
+        <div class="row-right">
+          <div class="subttl">Backend</div>
+          <ul>
+            <li>Java, REST API</li>
+            <li>Spring MVC, Spring Boot, Spring Batch</li>
+            <li>Maven, Gradle</li>
+            <li>Eclipse, Visual Studio Code</li>
+          </ul>
+          <div class="subttl">Frontend</div>
+          <ul>
+            <li>Javascript ES5/ES6</li>
+            <li>React</li>
+          </ul>
+          <div class="subttl">Data / Infra</div>
+          <ul>
+            <li>Oracle · PL/SQL</li>
+            <li>MyBatis, JPA, QueryDSL</li>
+            <li>AWS EC2</li>
+            <li>Git, SVN</li>
+            <li>Jenkins (CI/CD)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="col">
-        <div class="card section">
-          <h2>요약</h2>
-          <p>
-            e-커머스 상품·프로모션·주문 백엔드 프로젝트 개발을 담당해온 개발자입니다.<br />
-            5년간 Java/Spring, Oracle 기반 백오피스 시스템 개발 및 운영 경험이 있습니다.<br />
-          </p>
+    <!-- 경력 -->
+    <section>
+      <h2>경력</h2>
+      <div class="row">
+        <div class="row-left">
+          2019.01 — 2024.11<br />
+          <span class="meta">5년 11개월</span>
         </div>
-
-        <div id="experience" class="card section">
-          <h2>경력 <span class="meta">| 백엔드 개발자</span></h2>
-
-          <h3>커머스웨어</h3>
-          <p class="meta">
-            2019.01 — 2024.11 (5년 10개월) <br />
-            Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins
-          </p>
+        <div class="row-right">
+          <h3>커머스웨어 <span class="meta">| 백엔드 개발자</span></h3>
+          <div class="meta">Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins</div>
           <ul>
             <li>상품/주문/클레임/프로모션 백오피스 개발 및 운영</li>
             <li>CTI 인터페이스 신규 개발 및 운영</li>
@@ -170,221 +155,177 @@
             <li>Jenkins 기반 CI/CD 파이프라인 구축, 배포 자동화</li>
           </ul>
         </div>
+      </div>
+    </section>
 
-        <div id="projects" class="card section">
-          <h2>대표 프로젝트</h2>
+    <!-- 대표 프로젝트 -->
+    <section>
+      <h2>대표 프로젝트</h2>
 
-          <div class="project">
-            <h3>카드즉시할인 프로모션 
-              <span class="meta">2024.01 — 2024.07 (7개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              기존 카드 청구할인의 한계를 개선하기 위해 즉시할인 프로세스 신규 개발.  <br />
-              고객은 결제 단계에서 즉시 할인 체감 → 구매 전환율 상승,  
-              쇼핑몰은 사후 세금 경정/운영비용 절감<br /> → 매출 기여.
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • 백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가  <br />
-              • 다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화  <br />
-              • 유닛/통합 테스트 케이스 작성, 안정성 확보
-              </p>
-
-              <p><strong>성과</strong><br />
-              • 프로젝트 성공적 완료 및 안정적 운영 중  <br />
-              • 고객 즉시 할인 체감으로 구매 전환율 상승 기대  <br />
-              • 쇼핑몰의 세금 경정/운영비용 절감 기대
-              </p>
-            </div>
-          </div>
-
-          <div class="project">
-            <h3>전시 모듈화
-              <span class="meta">2023.8 — 2023.10(3개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              • 이벤트 페이지, 특정 전시 페이지 등 정형화되지 않은 전시페이지는 기존에 매번 신규 개발 필요 <br />
-              • 개발자 리소스 소모 증가, 협력 업체도 즉각적인 전시 변경이 어려워 불편 발생<br />
-              • 전시 모듈화를 통해 페이지를 컴포넌트 단위로 조합 및 업체가 화면 구성할 수 있도록 개선
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • 백오피스 관리 기능 개발: 전시 컴포넌트 CRUD API 개발
-              </p>
-
-              <p><strong>성과</strong><br />
-              • 반복적인 개발 리소스 절감 및 전시화면 리드타임 단축
-              </p>
-            </div>
-          </div>
-
-          <div class="project">
-            <h3>PC몰 리뉴얼
-              <span class="meta">2023.3 — 2023.6(4개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              • 기존 PC몰 일부 화면은 응답 속도 지연(최대 4~5초) 개선<br />
-              • 최신 UI/UX 트렌드 반영을 통해 사용자 경험 개선
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • 쿼리 속도 개선<br />
-              • 캐싱 적용: Spring Cache 기능을 활용하여 빈번한 조회 데이터 캐싱<br />
-              • UI/UX 개선
-              </p>
-
-              <p><strong>성과</strong><br />
-              • 성능 개선: 주요 화면 응답 속도 3초 → 1초로 단축<br />
-              • 사용자 경험 향상: 최신 디자인 적용으로 PC 이탈률 감소 기대
-              </p>
-            </div>
-          </div>
-
-          <div class="project">
-            <h3>시스템 고도화
-              <span class="meta">2020.1 — 2021.2(1년 2개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              • 기존 백오피스 업무 시스템은 Adobe Flex 기반으로 구형되어 있어 IE브라우저 종료로 인해 전환 필요<br />
-              • 구식 UI/UX 및 느린 응답 속도 개선 필요<br />
-              • Javascript Framework(ExtJS)로 전환 및 업무 고도화 진행
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • 코어/공통 모듈 담당 (AA 역할)<br />
-              &nbsp;&nbsp;- 프로젝트 환경 구성 및 핵심 공통 로직 전환<br />
-              &nbsp;&nbsp;- 오류 또는 기술 문의 창구 역할 수행, R&D센터와 협업<br />
-              • 인프라/운영 환경 지원<br />
-              &nbsp;&nbsp;- Jenkins 기반 CI/CD 환경 설정 및 서버 배포 지원 (배포 자동화)<br />
-              &nbsp;&nbsp;- 기존 인프라 구조 파악 및 신규 시스템 배포 파이프라인 정립<br />
-              • 품질 확보<br />
-              &nbsp;&nbsp;- 공통 기능/코어 모듈 검증
-              </p>
-
-              <p><strong>성과</strong><br />
-              • 플렉스 기반 레거시 시스템 JS 프레임워크로 전환 성공<br />
-              • 신규 시스템을 안정적으로 오픈 및 현재까지 무중단 운영 중<br />
-              • 프로젝트 범위가 방대했음에도 전환 완료 및 전반적 업무 프로세스 개선에 기여
-              </p>
-            </div>
-          </div>
-
-          <div class="project">
-            <h3>호주 홈쇼핑 시스템 구축 및 운영
-              <span class="meta">2019.3 — 2019.12(10개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              • 회사 입사 후 첫 해외 출장 프로젝트, 호주 신규 홈쇼핑 시스템 구축
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • CTI(전화 연동) 인터페이스 신규 개발<br />
-              &nbsp;&nbsp;- 기존 DirectX 기반 솔루션을 Javascript 이벤트 호출 방식으로 변경<br />
-              &nbsp;&nbsp;- 호주에서 현지 테스트 및 수정 → 안정적 오픈 달성<br />
-              • 부가 업무 지원<br />
-              &nbsp;&nbsp;- 일부 화면 수정, SQL 쿼리 작성, 번역본 적용 및 다국어 전환 검증<br />
-              &nbsp;&nbsp;- 초기 운영 지원
-              </p>
-
-              <p><strong>성과</strong><br />
-              • CTI 인터페이스 신규 구축으로 전화 주문 업무 정상 오픈 → 실제 고객 주문 처리 성공<br />
-              • 신규 홈쇼핑 시스템 해외 런칭 기여 및 해외 경험<br />
-              • 시스템 전반에 대한 이해도와 문제 해결 능력 향상
-              </p>
-            </div>
-          </div>
-
+      <!-- 카드즉시할인 프로모션 -->
+      <div class="row">
+        <div class="row-left">2024.01 — 2024.07<br /><span class="meta">7개월</span></div>
+        <div class="row-right">
+          <h3>카드즉시할인 프로모션</h3>
+          <div class="subttl">프로젝트 개요</div>
+          <p>기존 카드 청구할인의 한계를 개선하기 위해 즉시할인 프로세스를 신규 개발. 고객은 결제 단계에서 즉시 할인 체감 → 구매 전환율 상승, 쇼핑몰은 사후 세금 경정/운영비용 절감 → 매출 기여.</p>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li>백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가</li>
+            <li>다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화</li>
+            <li>유닛/통합 테스트 케이스 작성, 안정성 확보</li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>프로젝트 성공적 완료 및 안정적 운영 중</li>
+            <li>고객 즉시 할인 체감으로 구매 전환율 상승 기대</li>
+            <li>쇼핑몰의 세금 경정/운영비용 절감 기대</li>
+          </ul>
         </div>
       </div>
 
-      <aside class="col">
-        <div class="card section">
-          <h2>연락처</h2>
-          <div class="divider"></div>
-          <div class="badges">
-            <span class="badge">Email</span><a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a>
-          </div>
-          
-          <!-- <div class="badges" style="margin-top:8px;">
-            <span class="badge">Notion</span><a href=""></a>
-          </div> -->
-        </div>
-
-        <div id="skills" class="card section">
-          <h2>핵심 기술</h2>
-          <div class="divider"></div>
-          <h3>Backend</h3>
-          <div class="badges">
-            <span class="badge">Java</span>
-            <span class="badge">Spring (MVC/Boot)</span>
-            <span class="badge">Batch</span>
-            <span class="badge">REST API</span>
-            <span class="badge">Javascript ES5/ES6~</span>
-          </div>
-          <h3>Data / Infra</h3>
-          <div class="badges">
-            <span class="badge">Oracle · PL/SQL</span>
-            <span class="badge">MyBatis / JPA / QueryDSL</span>
-            <span class="badge">Jenkins</span>
-            <span class="badge">AWS (EC2)</span>
-          </div>
-          <h3>Etc.</h3>
-          <div class="badges">
-            <span class="badge">React</span>
-            <span class="badge">Linux</span>
-          </div>
-        </div>
-
-        <div class="card section">
-          <h2>교육 · 자격</h2>
-          <div class="divider"></div>
+      <!-- 전시 모듈화 -->
+      <div class="row">
+        <div class="row-left">2023.08 — 2023.10<br /><span class="meta">3개월</span></div>
+        <div class="row-right">
+          <h3>전시 모듈화</h3>
+          <div class="subttl">프로젝트 개요</div>
           <ul>
-            <li>일본어 능력 시험 - JLPT N3 (2025)</li>
-            <li>정보처리기사 (2018)</li>
-            <li>Java&Python 기반 응용SW 개발자 양성과정 (2018, 7개월)</li>
+            <li>이벤트/특정 전시 등 정형화되지 않은 전시 페이지는 매번 신규 개발 필요</li>
+            <li>개발자 리소스 소모 증가, 협력업체의 즉각적 전시 변경 어려움</li>
+            <li>전시 모듈화를 통해 페이지를 컴포넌트 단위로 조합, 업체가 화면 구성 가능하도록 개선</li>
+          </ul>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li>백오피스 관리 기능 개발: 전시 컴포넌트 CRUD API 개발</li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>반복 개발 리소스 절감 및 전시 화면 리드타임 단축</li>
           </ul>
         </div>
+      </div>
 
-        <div id="sideprojects" class="card section">
-          <h2>사이드 프로젝트</h2>
-
-          <div class="project">
-            <h3>카드즉시할인 프로모션 
-              <span class="meta">2024.01 — 2024.07 (7개월)</span>
-            </h3>
-            <div class="highlight">
-              <p><strong>프로젝트 개요</strong><br />
-              기존 카드 청구할인의 한계를 개선하기 위해 즉시할인 프로세스 신규 개발.  <br />
-              고객은 결제 단계에서 즉시 할인 체감 → 구매 전환율 상승,  
-              쇼핑몰은 사후 세금 경정/운영비용 절감<br /> → 매출 기여.
-              </p>
-
-              <p><strong>내 역할</strong><br />
-              • 백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가  <br />
-              • 다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화  <br />
-              • 유닛/통합 테스트 케이스 작성, 안정성 확보
-              </p>
-
-              <p><strong>성과</strong><br />
-              • 프로젝트 성공적 완료 및 안정적 운영 중  <br />
-              • 고객 즉시 할인 체감으로 구매 전환율 상승 기대  <br />
-              • 쇼핑몰의 세금 경정/운영비용 절감 기대
-              </p>
-            </div>
-          </div>
-
-
+      <!-- PC몰 리뉴얼 -->
+      <div class="row">
+        <div class="row-left">2023.03 — 2023.06<br /><span class="meta">4개월</span></div>
+        <div class="row-right">
+          <h3>PC몰 리뉴얼</h3>
+          <div class="subttl">프로젝트 개요</div>
+          <ul>
+            <li>기존 PC몰 일부 화면의 응답 속도 지연(최대 4~5초) 개선</li>
+            <li>최신 UI/UX 트렌드 반영을 통한 사용자 경험 개선</li>
+          </ul>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li>쿼리 속도 개선</li>
+            <li>Spring Cache 적용(빈번 조회 데이터 캐싱)</li>
+            <li>UI/UX 개선</li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>주요 화면 응답 속도 3초 → 1초 단축</li>
+            <li>최신 디자인 적용으로 PC 이탈률 감소 기대</li>
+          </ul>
         </div>
+      </div>
 
-      </aside>
+      <!-- 시스템 고도화 -->
+      <div class="row">
+        <div class="row-left">2020.01 — 2021.02<br /><span class="meta">1년 2개월</span></div>
+        <div class="row-right">
+          <h3>시스템 고도화</h3>
+          <div class="subttl">프로젝트 개요</div>
+          <ul>
+            <li>기존 백오피스는 Adobe Flex 기반으로 구형, IE 종료로 전환 필요</li>
+            <li>구식 UI/UX와 느린 응답 속도 개선 필요</li>
+            <li>Javascript Framework(ExtJS)로 전환 및 업무 고도화</li>
+          </ul>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li>코어/공통 모듈 담당 (AA 역할)</li>
+            <li>프로젝트 환경 구성 및 핵심 공통 로직 전환</li>
+            <li>오류·기술 문의 창구 역할, R&D센터 협업</li>
+            <li>Jenkins 기반 CI/CD 환경 설정 및 서버 배포 지원(배포 자동화)</li>
+            <li>기존 인프라 구조 파악 및 신규 시스템 배포 파이프라인 정립</li>
+            <li>공통 기능/코어 모듈 검증</li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>플렉스 기반 레거시 시스템 JS 프레임워크로 전환 성공</li>
+            <li>신규 시스템 안정적 오픈 및 현재까지 무중단 운영</li>
+            <li>방대한 범위의 전환 완료 및 전반적 업무 프로세스 개선 기여</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 호주 홈쇼핑 시스템 구축 및 운영 -->
+      <div class="row">
+        <div class="row-left">2019.03 — 2019.12<br /><span class="meta">10개월</span></div>
+        <div class="row-right">
+          <h3>호주 홈쇼핑 시스템 구축 및 운영</h3>
+          <div class="subttl">프로젝트 개요</div>
+          <ul>
+            <li>입사 후 첫 해외 출장 프로젝트, 호주 신규 홈쇼핑 시스템 구축</li>
+          </ul>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li>CTI(전화 연동) 인터페이스 신규 개발</li>
+            <li>DirectX 기반 솔루션을 Javascript 이벤트 호출 방식으로 변경</li>
+            <li>호주 현지 테스트 및 수정으로 안정적 오픈 달성</li>
+            <li>일부 화면 수정, SQL 쿼리 작성, 번역본 적용 및 다국어 전환 검증</li>
+            <li>초기 운영 지원</li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>CTI 인터페이스 신규 구축으로 전화 주문 업무 정상 오픈 → 실제 고객 주문 처리 성공</li>
+            <li>신규 홈쇼핑 시스템 해외 런칭 기여 및 해외 경험</li>
+            <li>시스템 전반 이해도 및 문제 해결 능력 향상</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <p class="foot">© 2025 김성진 · GitHub Pages</p>
-  </main>
+    <!-- 사이드 프로젝트 -->
+    <section>
+      <h2>사이드 프로젝트</h2>
+      <div class="row">
+        <div class="row-left">2025.10 — 진행중</div>
+        <div class="row-right">
+          <h3>FitnessAI</h3>
+          <div class="subttl">프로젝트 개요</div>
+          <p></p>
+          <div class="subttl">내 역할</div>
+          <ul>
+            <li></li>
+          </ul>
+          <div class="subttl">성과</div>
+          <ul>
+            <li>프로젝트 성공적 완료 및 안정적 운영 중</li>
+            <li>고객 즉시 할인 체감으로 구매 전환율 상승 기대</li>
+            <li>쇼핑몰의 세금 경정/운영비용 절감 기대</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 교육/자격 -->
+    <section>
+      <h2>교육 · 자격</h2>
+      <ul>
+        <li>일본어 능력 시험 - JLPT N3 (2025)</li>
+        <li>정보처리기사 (2018)</li>
+        <li>Java&Python 기반 응용SW 개발자 양성과정 (2018, 7개월)</li>
+      </ul>
+    </section>
+
+    <!-- 연락처 -->
+    <section>
+      <h2>연락처</h2>
+      <p class="meta">Email · <a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a></p>
+    </section>
+
+    <footer style="text-align:center; font-size:13px; color:#64748b; margin-top:22px">© 2025 김성진 · GitHub Pages</footer>
+  </div>
 </body>
 </html>
