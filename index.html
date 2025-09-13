@@ -5,49 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>김성진 | 서버 백엔드 엔지니어</title>
   <style>
-    :root{ --text:#1f2937; --muted:#64748b; --accent:#2563eb; --border:#e5e7eb; }
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{ margin:0; background:#fff; color:var(--text); font:15px/1.75 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; -webkit-font-smoothing:antialiased }
-    .wrap{ max-width:900px; margin:0 auto; padding:32px 20px }
-    a{ color:var(--accent); text-decoration:none }
+    :root {
+      --text: #1f2937;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html,body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--text);
+      font: 15px/1.75 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-    /* Header */
-    header{ margin-bottom:18px }
-    .headbar{ display:flex; align-items:center; justify-content:space-between; gap:16px }
-    .headtitle{ text-align:left }
-    header h1{ margin:0; font-size:30px; font-weight:800; letter-spacing:-.01em }
-    .title{ color:var(--muted); font-size:16px; margin-top:6px }
-    .contact{ font-size:14px; margin-top:6px }
+    header {
+      margin-bottom: 18px;
+    }
+    .headbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .headtitle {
+      text-align: left;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    .title {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 6px;
+    }
+    .contact {
+      font-size: 14px;
+      margin-top: 6px;
+    }
 
-    /* Print button */
-    .btn{ border:1px solid var(--border); background:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; font-size:14px }
-    .btn:hover{ background:#f8fafc }
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background: #f8fafc;
+    }
 
-    /* Headings */
-    h2{ font-size:20px; margin:28px 0 14px; border-bottom:2px solid var(--accent); padding-bottom:6px }
-    h3{ font-size:16px; margin:0 0 4px; font-weight:600 }
-    .meta{ color:var(--muted); font-size:14px }
+    h2 {
+      font-size: 20px;
+      margin: 28px 0 14px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 0 0 4px;
+      font-weight: 600;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-    /* Two-column rows */
-    .row{ display:flex; gap:18px; margin:18px 0 }
-    .row-left{ flex:0 0 160px; text-align:right; color:var(--muted); font-size:14px; padding-right:12px }
-    .row-right{ flex:1 }
+    .row {
+      display: flex;
+      gap: 18px;;
+      margin: 18px 0;
+    }
+    .row-left {
+      flex: 0 0 160px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 14px;
+      padding-right: 12px;
+    }
+    .row-right {
+      flex: 1;
+    }
+    .row-left-up {
+      display: none;
+      flex: 0 0 160px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 14px;
+      padding-right: 12px;
+    }
 
-    /* Lists / tags */
-    ul{ margin:8px 0 0 18px }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px }
-    .tag{ background:#f3f6fb; color:#334155; border-radius:999px; padding:4px 10px; font-size:13px }
+    ul {
+      margin: 8px 0 0 18px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      background: #f3f6fb;
+      color: #334155;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 13px;
+    }
 
-    /* Subsection titles */
-    .subttl{ font-weight:600; color:var(--accent); margin-top:10px }
+    .subttl {
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 10px;
+    }
 
-    @media print{
-      body{ font-size:13px }
-      .wrap{ padding:0 }
-      a[href^="http"]:after{ content:" (" attr(href) ")"; font-size:.85em; color:#555 }
-      .row{ break-inside:avoid }
-      .print-hide{ display:none !important }
+    .name {
+      display: flex;
+    }
+    .name .ko {
+      white-space: nowrap;
+    }
+    .name .en {
+      white-space: nowrap;
+    }
+
+    @media print {
+      body {
+        font-size: 13px;
+      }
+      .wrap {
+        padding: 0;
+      }
+      a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: .85em;
+        color: #555;
+      }
+      .row {
+        break-inside: avoid;
+      }
+      .print-hide {
+        display: none !important;
+      }
+    }
+    @media (max-width: 460px) {
+      .name {
+        flex-direction: column;
+        gap: .25rem;
+      }
+      .row-left {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -56,7 +181,10 @@
     <header>
       <div class="headbar">
         <div class="headtitle">
-          <h1>김성진 (SEONGJIN KIM)</h1>
+          <h1 class="name">
+            <span class="ko">김성진&nbsp;</span>
+            <span class="en">(KIM SEONGJIN)</span>
+          </h1>
           <div class="title">Backend · E-commerce</div>
           <div class="contact">
             Email: <a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a><br />
@@ -83,33 +211,6 @@
     <!-- 핵심 기술 -->
     <section>
       <h2>핵심 기술</h2>
-      <!-- <div class="row">
-        <div class="row-left">주요 기술</div>
-        <div class="row-right">
-          <div class="chips">
-            <span class="tag">Java</span>
-            <span class="tag">Spring MVC/Spring Boot</span>
-            <span class="tag">Spring Batch</span>
-            <span class="tag">Oracle</span>
-            <span class="tag">JQuery</span>
-            <span class="tag">Git</span>
-            <span class="tag">SVN</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="row-left">서브 기술</div>
-        <div class="row-right">
-          <div class="chips">
-            <span class="tag">JSP</span>
-            <span class="tag">JPA</span>
-            <span class="tag">QueryDSL</span>
-            <span class="tag">React</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Linux</span>
-          </div>
-        </div>
-      </div> -->
       <div class="row">
         <div class="row-left">SKILL</div>
         <div class="row-right">
@@ -144,6 +245,9 @@
         <div class="row-left">
           2019.01 — 2024.11<br />
           <span class="meta">5년 11개월</span>
+        </div>
+        <div class="row-left-up">
+          2019.01 — 2024.11 (5년 11개월)
         </div>
         <div class="row-right">
           <h3>커머스웨어 <span class="meta">| 백엔드 개발자</span></h3>
