@@ -347,14 +347,19 @@
       flex-direction: column;
       gap: 16px;
     }
-    .simple-list li { display: flex; align-items: flex-start; gap: 10px; }
+    .simple-list li {
+      position: relative;
+      padding-left: 16px;
+    }
     .simple-list li::before {
       content: '·';
       color: var(--accent);
       font-weight: 700;
       font-size: 18px;
-      line-height: 1.4;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      line-height: 1.8;
     }
 
     /* ── EXTRA SECTION ── */
