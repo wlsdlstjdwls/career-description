@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <title>도쿄 코코로 일본어 학교</title>
   <style>
@@ -20,6 +21,11 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       object-fit: cover;
+    }
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>

@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <title>학원 페이지 — 프로젝트 이미지</title>
   <style>
@@ -20,6 +21,16 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       object-fit: cover;
+    }
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 601px) and (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
