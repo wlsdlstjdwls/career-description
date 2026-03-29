@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <title>김성진 | 서버 백엔드 엔지니어</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --text: #0f172a;
@@ -23,7 +26,9 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
+      background-size: 22px 22px;
       color: var(--text);
       font: 15px/1.8 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -145,13 +150,22 @@
       margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: linear-gradient(180deg, var(--accent) 0%, #818cf8 100%);
+      border-radius: 2px;
+      flex-shrink: 0;
     }
     h2::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(90deg, var(--border), transparent);
     }
 
     /* ── INTRO ── */
@@ -270,12 +284,14 @@
     /* ── PROJECT BLOCK ── */
     .proj-block { margin-top: 10px; }
     .proj-section-title {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: .05em;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin: 14px 0 6px;
+      color: var(--accent);
+      margin: 16px 0 6px;
+      padding-left: 8px;
+      border-left: 2px solid #c7d2fe;
     }
     .proj-block ul {
       margin: 0 0 0 16px;
@@ -293,15 +309,17 @@
     .exp-card {
       background: var(--card);
       border: 1px solid var(--border);
+      border-left: 3px solid transparent;
       border-radius: 12px;
       padding: 22px 24px;
       margin-bottom: 16px;
       box-shadow: 0 1px 3px rgba(15,23,42,.05);
-      transition: box-shadow .2s, border-color .2s;
+      transition: box-shadow .2s, border-left-color .2s, transform .15s;
     }
     .exp-card:hover {
-      box-shadow: 0 4px 16px rgba(15,23,42,.1);
-      border-color: #c7d2fe;
+      box-shadow: 0 6px 20px rgba(15,23,42,.1);
+      border-left-color: var(--accent);
+      transform: translateX(2px);
     }
     .exp-card:last-child { margin-bottom: 0; }
 
@@ -375,13 +393,21 @@
       border-top: 1px solid var(--border);
     }
 
+    /* ── PULSE ── */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .pulse { animation: pulse-dot 2s ease-in-out infinite; }
+
     /* ── PRINT ── */
     @media print {
-      body { font-size: 13px; background: #fff; }
+      body { font-size: 13px; background-color: #fff; background-image: none; }
       .wrap { padding: 0; }
       .card { box-shadow: none; border-color: #e2e8f0; }
       header { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       a[href^="http"]:after { content: " (" attr(href) ")"; font-size:.85em; color:#555; }
+      .pulse { animation: none; }
     }
 
     /* ── MOBILE ── */
@@ -394,6 +420,7 @@
       .tl-item::before { display: none; }
       .tl-right { padding-left: 0; padding-bottom: 24px; }
       .print-hide { display: none !important; }
+      .exp-card:hover { transform: none; }
     }
   </style>
 </head>
@@ -493,7 +520,7 @@
             <div class="tl-duration">재입사</div>
           </div>
           <div class="tl-right">
-            <div class="tl-title">커머스웨어 <span style="font-size:13px;font-weight:400;color:#059669;">● 재직 중</span></div>
+            <div class="tl-title">커머스웨어 <span class="pulse" style="font-size:13px;font-weight:400;color:#059669;">● 재직 중</span></div>
             <div class="tl-sub">백엔드 개발자 · 현대백화점 프로젝트</div>
             <ul style="margin: 6px 0 0 16px; padding:0;">
               <li style="font-size:14px;color:#334155;line-height:1.75;">현대백화점 프로젝트 개발 진행 중</li>
@@ -535,10 +562,6 @@
             <li>진행 중</li>
           </ul>
           <div class="proj-section-title">내 역할</div>
-          <ul>
-            <li>진행 중</li>
-          </ul>
-          <div class="proj-section-title">성과</div>
           <ul>
             <li>진행 중</li>
           </ul>
