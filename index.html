@@ -424,6 +424,9 @@
       .contact-row { flex-wrap: wrap; gap: 4px; }
       /* 긴 프로젝트명 + 진행중 뱃지 줄바꿈 허용 */
       .tl-title { flex-wrap: wrap; }
+      /* 교육·자격 섹션 overflow 방지 */
+      .simple-list li { word-break: break-word; overflow-wrap: break-word; }
+      .extra-card { padding: 16px; }
     }
   </style>
 </head>
@@ -765,7 +768,7 @@
 
       <!-- FitnessAI -->
       <div class="exp-card">
-        <div class="tl-title" style="display:flex;align-items:center;gap:8px;">FitnessAI (Fitness In Service) <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">진행중</span></div>
+        <div class="tl-title" style="display:flex;align-items:center;gap:8px;">FitnessAI <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">진행중</span></div>
         <div class="tl-sub">2025.10 — 진행중 · <a href="https://beta.fitness-trainer-assistant.ai.kr" target="_blank">beta.fitness-trainer-assistant.ai.kr</a></div>
         <div class="proj-block">
           <div class="proj-section-title">프로젝트 개요</div>
