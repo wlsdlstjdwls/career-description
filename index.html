@@ -4,305 +4,530 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-
   <title>김성진 | 서버 백엔드 엔지니어</title>
   <style>
     :root {
-      --text: #1f2937;
+      --text: #0f172a;
       --muted: #64748b;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --link: #7c3aed;
+      --accent: #4f46e5;
+      --accent-light: #eef2ff;
+      --accent2: #0ea5e9;
+      --border: #e2e8f0;
+      --link: #4f46e5;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --success: #059669;
+      --tag-bg: #f1f5f9;
+      --tag-text: #334155;
     }
-    * {
-      box-sizing: border-box;
-    }
-    html,body {
-      height: 100%;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
     body {
-      margin: 0;
-      background: #fff;
+      background: var(--bg);
       color: var(--text);
-      font: 15px/1.75 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font: 15px/1.8 "Inter","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       -webkit-font-smoothing: antialiased;
     }
     .wrap {
       max-width: 900px;
       margin: 0 auto;
-      padding: 32px 20px;
+      padding: 32px 20px 60px;
     }
     a {
       color: var(--link);
       text-decoration: none;
-      text-decoration: underline;
     }
+    a:hover { text-decoration: underline; }
 
+    /* ── HEADER ── */
     header {
-      margin-bottom: 18px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 40px 44px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(79,70,229,.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 30%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(14,165,233,.2) 0%, transparent 70%);
+      pointer-events: none;
     }
     .headbar {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
-    }
-    .headtitle {
-      text-align: left;
+      gap: 20px;
+      position: relative; z-index: 1;
     }
     header h1 {
-      margin: 0;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: -.01em;
+      letter-spacing: -.02em;
+      color: #fff;
+      line-height: 1.2;
     }
-    .title {
-      color: var(--muted);
-      font-size: 16px;
-      margin-top: 6px;
+    .title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79,70,229,.35);
+      border: 1px solid rgba(79,70,229,.5);
+      color: #a5b4fc;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-top: 10px;
     }
     .contact {
-      font-size: 14px;
-      margin-top: 6px;
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 13.5px;
+      color: #94a3b8;
     }
-
+    .contact a { color: #93c5fd; }
+    .contact a:hover { color: #bfdbfe; }
+    .contact-row { display: flex; align-items: center; gap: 8px; }
+    .contact-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #64748b;
+      text-transform: uppercase;
+      min-width: 54px;
+    }
     .btn {
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      color: #e2e8f0;
+      padding: 9px 16px;
       border-radius: 10px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background .15s;
     }
-    .btn:hover {
-      background: #f8fafc;
+    .btn:hover { background: rgba(255,255,255,.15); }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(15,23,42,.06);
     }
 
+    /* ── SECTION TITLE ── */
     h2 {
-      font-size: 20px;
-      margin: 28px 0 14px;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 6px;
-    }
-    h3 {
-      font-size: 16px;
-      margin: 0 0 4px;
-      font-weight: 600;
-    }
-    .meta {
-      color: var(--muted);
       font-size: 14px;
-    }
-
-    .row {
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
       display: flex;
-      gap: 18px;;
-      margin: 18px 0 40px 0;
+      align-items: center;
+      gap: 8px;
     }
-    .row-left {
-      flex: 0 0 160px;
-      text-align: right;
-      color: var(--muted);
-      font-size: 14px;
-      padding-right: 12px;
-    }
-    .row-right {
+    h2::after {
+      content: '';
       flex: 1;
-    }
-    .row-left-up {
-      display: none;
-      text-align: left;
-      color: var(--muted);
-      font-size: 14px;
-      padding-right: 12px;
-    }
-    .row-right-up {
-      display: none;
+      height: 1px;
+      background: var(--border);
     }
 
-    ul {
-      margin: 8px 0 0 18px;
+    /* ── INTRO ── */
+    .intro-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #334155;
+    }
+    .intro-text strong { color: var(--text); }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 18px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
     .tag {
-      background: #f3f6fb;
-      color: #334155;
-      border-radius: 999px;
-      padding: 4px 10px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 7px;
+      padding: 5px 12px;
       font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border);
     }
-
-    .subttl {
-      font-weight: 600;
+    .tag-accent {
+      background: var(--accent-light);
       color: var(--accent);
-      margin-top: 10px;
+      border-color: #c7d2fe;
+    }
+    .tag-sky {
+      background: #f0f9ff;
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+    .tag-green {
+      background: #f0fdf4;
+      color: #15803d;
+      border-color: #bbf7d0;
     }
 
-    .name {
+    /* ── TIMELINE ROW ── */
+    .tl-list { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
       display: flex;
+      gap: 0;
+      position: relative;
     }
-    .name .ko {
-      white-space: nowrap;
+    .tl-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 134px;
+      top: 28px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
     }
-    .name .en {
-      white-space: nowrap;
+    .tl-left {
+      flex: 0 0 148px;
+      padding-right: 24px;
+      text-align: right;
+      padding-top: 2px;
+      position: relative;
+    }
+    .tl-left::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 8px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--card);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .tl-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .tl-duration {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .tl-right {
+      flex: 1;
+      padding-bottom: 32px;
+      padding-left: 20px;
+    }
+    .tl-item:last-child .tl-right { padding-bottom: 0; }
+
+    .tl-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .tl-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    @media print {
-      body {
-        font-size: 13px;
-      }
-      .wrap {
-        padding: 0;
-      }
-      a[href^="http"]:after {
-        content: " (" attr(href) ")";
-        font-size: .85em;
-        color: #555;
-      }
-      .row {
-        break-inside: avoid;
-      }
+    /* ── PROJECT BLOCK ── */
+    .proj-block { margin-top: 10px; }
+    .proj-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 14px 0 6px;
     }
-    @media (max-width: 460px) {
-      .name {
-        flex-direction: column;
-        gap: .25rem;
-      }
-      .btn {
-        font-size: 10px;
-      }
-      .row {
-        flex-direction: column;
-      }
-      .row-left {
-        display: none;
-      }
-      .row-left-up {
-        display: block;
-      }
-      .row-right-up {
-        display: inline;
-      }
-      .print-hide {
-        display: none !important;
-      }
+    .proj-block ul {
+      margin: 0 0 0 16px;
+      padding: 0;
+    }
+    .proj-block li {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.75;
+      padding: 1px 0;
+    }
+    .proj-block strong { color: var(--text); }
+
+    /* ── EXPERIENCE CARD ── */
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(15,23,42,.05);
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .exp-card:hover {
+      box-shadow: 0 4px 16px rgba(15,23,42,.1);
+      border-color: #c7d2fe;
+    }
+    .exp-card:last-child { margin-bottom: 0; }
+
+    /* ── PROJECT BADGE ── */
+    .proj-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ── SIMPLE LIST SECTION ── */
+    .simple-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .simple-list li { display: flex; align-items: flex-start; gap: 10px; }
+    .simple-list li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+
+    /* ── EXTRA SECTION ── */
+    .extra-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 14px;
+    }
+    .extra-card:last-child { margin-bottom: 0; }
+    .extra-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .extra-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .extra-card p {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.8;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { font-size: 13px; background: #fff; }
+      .wrap { padding: 0; }
+      .card { box-shadow: none; border-color: #e2e8f0; }
+      header { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size:.85em; color:#555; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      header { padding: 28px 24px; }
+      header h1 { font-size: 24px; }
+      .headbar { flex-direction: column; }
+      .card { padding: 20px; }
+      .tl-left { display: none; }
+      .tl-item::before { display: none; }
+      .tl-right { padding-left: 0; padding-bottom: 24px; }
+      .print-hide { display: none !important; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
+
+    <!-- ── HEADER ── -->
     <header>
       <div class="headbar">
-        <div class="headtitle">
-          <h1 class="name">
-            <span class="ko">김성진&nbsp;</span>
-            <span class="en">(KIM SEONGJIN)</span>
-          </h1>
-          <div class="title">Backend · E-commerce</div>
+        <div>
+          <h1>김성진 <span style="font-weight:400;font-size:22px;color:#94a3b8;">(KIM SEONGJIN)</span></h1>
+          <div class="title-badge">&#9679;&nbsp;Backend · E-commerce</div>
           <div class="contact">
-            Email: <a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a><br />
-            Web: <a href="https://diary-developer.tistory.com" target="_blank" style="white-space: nowrap;">https://diary-developer.tistory.com</a><br />
-            GitLab-1: <a href="https://gitlab.com/deepit-labs" target="_blank">https://gitlab.com/deepit-labs</a><br />
-            GitLab-2: <a href="https://gitlab.com/whor/educational-institute" target="_blank">https://gitlab.com/whor/educational-institute</a>
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <a href="mailto:seongjin1037@gmail.com">seongjin1037@gmail.com</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Blog</span>
+              <a href="https://diary-developer.tistory.com" target="_blank">diary-developer.tistory.com</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">GitLab</span>
+              <a href="https://gitlab.com/deepit-labs" target="_blank">gitlab.com/deepit-labs</a>
+              &nbsp;·&nbsp;
+              <a href="https://gitlab.com/whor/educational-institute" target="_blank">gitlab.com/whor/educational-institute</a>
+            </div>
           </div>
         </div>
-        <div class="actions print-hide">
+        <div class="print-hide" style="flex-shrink:0;">
           <button class="btn" onclick="window.print()">PDF로 저장</button>
         </div>
       </div>
     </header>
 
-    <!-- 소개 -->
-    <section>
+    <!-- ── 소개 ── -->
+    <div class="card">
       <h2>소개</h2>
-      <p>
-        E-커머스 백엔드 전문 개발자로서 <strong>상품·주문·프로모션·클레임</strong> 등 핵심 도메인을 5년간 설계·개발·운영했습니다.<br />
-        <strong>Java/Spring · Oracle</strong> 기반 대규모 백오피스 경험을 바탕으로, <strong>성능 최적화·안정성 확보·운영 자동화(CI/CD)</strong>를 통해 비즈니스 성과로 연결되는 개발을 지향합니다.<br />
-        대규모 트래픽 환경의 최적화, 신규 서비스 론칭, 레거시 전환 프로젝트를 폭넓게 수행했습니다. <br />
+      <p class="intro-text">
+        E-커머스 백엔드 전문 개발자로서 <strong>상품 · 주문 · 프로모션 · 클레임</strong> 등 핵심 도메인을 5년간 설계 · 개발 · 운영했습니다.<br />
+        <strong>Java/Spring · Oracle</strong> 기반 대규모 백오피스 경험을 바탕으로, <strong>성능 최적화 · 안정성 확보 · 운영 자동화(CI/CD)</strong>를 통해 비즈니스 성과로 연결되는 개발을 지향합니다.<br />
+        대규모 트래픽 환경의 최적화, 신규 서비스 론칭, 레거시 전환 프로젝트를 폭넓게 수행했습니다.
       </p>
-    </section>
+    </div>
 
-    <!-- 핵심 기술 -->
-    <section>
+    <!-- ── 핵심 기술 ── -->
+    <div class="card">
       <h2>핵심 기술</h2>
-      <div class="row">
-        <div class="row-left">SKILL</div>
-        <div class="row-right">
-          <div class="subttl">Backend</div>
-          <ul>
-            <li>Java, REST API</li>
-            <li>Spring MVC, Spring Boot, Spring Batch</li>
-            <li>Maven, Gradle</li>
-            <li>Eclipse, Visual Studio Code</li>
-          </ul>
-          <div class="subttl">Frontend</div>
-          <ul>
-            <li>Javascript ES5/ES6</li>
-            <li>React, ExtJS, JQuery</li>
-          </ul>
-          <div class="subttl">Data / Infra</div>
-          <ul>
-            <li>Oracle · PL/SQL</li>
-            <li>MyBatis, JPA, QueryDSL</li>
-            <li>AWS EC2, Linux</li>
-            <li>Git, SVN</li>
-            <li>Jenkins (CI/CD)</li>
-          </ul>
+      <div class="skill-group">
+        <div class="skill-group-title">Backend</div>
+        <div class="chips">
+          <span class="tag tag-accent">Java</span>
+          <span class="tag tag-accent">REST API</span>
+          <span class="tag tag-accent">Spring MVC</span>
+          <span class="tag tag-accent">Spring Boot</span>
+          <span class="tag tag-accent">Spring Batch</span>
+          <span class="tag tag-accent">Maven</span>
+          <span class="tag tag-accent">Gradle</span>
         </div>
       </div>
-    </section>
+      <div class="skill-group">
+        <div class="skill-group-title">Frontend</div>
+        <div class="chips">
+          <span class="tag tag-sky">Javascript ES5/ES6</span>
+          <span class="tag tag-sky">React</span>
+          <span class="tag tag-sky">ExtJS</span>
+          <span class="tag tag-sky">jQuery</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data / Infra</div>
+        <div class="chips">
+          <span class="tag tag-green">Oracle · PL/SQL</span>
+          <span class="tag tag-green">MariaDB (AWS RDS)</span>
+          <span class="tag tag-green">MyBatis</span>
+          <span class="tag tag-green">JPA</span>
+          <span class="tag tag-green">QueryDSL</span>
+          <span class="tag tag-green">Redis</span>
+          <span class="tag tag-green">JWT</span>
+          <span class="tag tag-green">AWS EC2</span>
+          <span class="tag tag-green">Docker</span>
+          <span class="tag tag-green">Nginx</span>
+          <span class="tag tag-green">Linux</span>
+          <span class="tag tag-green">Git</span>
+          <span class="tag tag-green">SVN</span>
+          <span class="tag tag-green">Jenkins (CI/CD)</span>
+        </div>
+      </div>
+    </div>
 
-    <!-- 경력 -->
-    <section>
+    <!-- ── 경력 ── -->
+    <div class="card">
       <h2>경력</h2>
-      <div class="row">
-        <div class="row-left">
-          2019.01 — 2024.11<br />
-          <span class="meta">5년 11개월</span>
-        </div>
-        <div class="row-left-up">
-          2019.01 — 2024.11 (5년 11개월)
-        </div>
-        <div class="row-right">
-          <h3>커머스웨어 <span class="meta">| 백엔드 개발자</span></h3>
-          <div class="meta">Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins</div>
-          <ul>
-            <li>상품/주문/클레임/프로모션 백오피스 개발 및 운영</li>
-            <li>CTI 인터페이스 신규 개발 및 운영</li>
-            <li>보이는 ARS 개발</li>
-            <li>대량 조회 쿼리 설계·튜닝</li>
-            <li>Jenkins 기반 CI/CD 파이프라인 구축, 배포 자동화</li>
-          </ul>
+      <div class="tl-list">
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-date">2019.01 — 2024.11</div>
+            <div class="tl-duration">5년 11개월</div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-title">커머스웨어</div>
+            <div class="tl-sub">백엔드 개발자 · Java, Spring, Batch, Oracle, PL/SQL, Git/SVN, Jenkins</div>
+            <div class="chips" style="margin-top:4px;">
+              <span class="tag">상품/주문/클레임/프로모션 백오피스 개발 및 운영</span>
+              <span class="tag">CTI 인터페이스 개발 및 운영</span>
+              <span class="tag">보이는 ARS 개발</span>
+              <span class="tag">대량 조회 쿼리 설계·튜닝</span>
+              <span class="tag">Jenkins 기반 CI/CD 구축</span>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 대표 프로젝트 -->
-    <section>
+    <!-- ── 대표 프로젝트 ── -->
+    <div class="card">
       <h2>대표 프로젝트</h2>
 
       <!-- 할인권 프로모션 -->
-      <div class="row">
-        <div class="row-left">2024.08 — 2024.10<br /><span class="meta">3개월</span></div>
-        <div class="row-right">
-          <h3>
-            할인권 프로모션<span class="row-right-up meta">&nbsp;(2024.08 — 2024.10, 3개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">할인권 프로모션</div>
+        <div class="tl-sub">2024.08 — 2024.10 · 3개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>매달 고객 실적(등급)에 따라 할인권 금액 자동 지급</li>
             <li>주문 시 할인이 자동 적용되도록 프로세스 개발</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>백오피스 주문 및 C/S 프로세스에 할인권 적용 로직 개발</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>주문 시 자동할인 적용으로 고객 편의성 증대</li>
             <li>할인권 프로모션 자동 적용으로 업무 효율화</li>
@@ -311,25 +536,24 @@
       </div>
 
       <!-- 카드즉시할인 프로모션 -->
-      <div class="row">
-        <div class="row-left">2024.01 — 2024.07<br /><span class="meta">7개월</span></div>
-        <div class="row-right">
-          <h3>
-            카드즉시할인 프로모션<span class="row-right-up meta">&nbsp;(2024.01 — 2024.07, 7개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">카드즉시할인 프로모션</div>
+        <div class="tl-sub">2024.01 — 2024.07 · 7개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>청구할인의 한계를 개선하기 위해 즉시할인 프로세스를 신규 개발</li>
             <li><strong>결제 단계에서 즉시할인 체감</strong> → 구매 전환율 상승</li>
-            <li>쇼핑몰은 사후 <strong>세금 경정청구/운영 비용 절감</strong></li>
+            <li>쇼핑몰은 사후 <strong>세금 경정청구 / 운영 비용 절감</strong></li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가</li>
             <li>다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화</li>
             <li>유닛/통합 테스트 케이스 작성, 안정성 확보</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>프로젝트 성공적 완료 및 안정적 운영 중</li>
             <li>고객 즉시 할인 체감으로 구매 전환율 상승</li>
@@ -339,24 +563,23 @@
       </div>
 
       <!-- 전시 모듈화 -->
-      <div class="row">
-        <div class="row-left">2023.10 — 2023.12<br /><span class="meta">3개월</span></div>
-        <div class="row-right">
-          <h3>
-            전시 모듈화<span class="row-right-up meta">&nbsp;(2023.10 - 2023.12, 3개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">전시 모듈화</div>
+        <div class="tl-sub">2023.10 — 2023.12 · 3개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>이벤트/특정 전시 등 정형화되지 않은 전시 페이지는 매번 신규 개발 필요</li>
             <li>개발자 리소스 소모 증가, 협력업체의 즉각적 전시 변경 어려움</li>
             <li>전시 모듈화를 통해 컴포넌트 단위로 조합 및 구성 가능하도록 개선</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>백오피스 관리 기능 개발: 전시 컴포넌트 API 개발</li>
             <li>프론트 조합 구조 설계 지원</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>반복 개발 리소스 절감</li>
             <li>전시 화면 리드타임 단축</li>
@@ -365,24 +588,23 @@
       </div>
 
       <!-- PC몰 리뉴얼 -->
-      <div class="row">
-        <div class="row-left">2023.05 — 2023.08<br /><span class="meta">4개월</span></div>
-        <div class="row-right">
-          <h3>
-            PC몰 리뉴얼<span class="row-right-up meta">&nbsp;(2023.05 - 2023.08, 4개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">PC몰 리뉴얼</div>
+        <div class="tl-sub">2023.05 — 2023.08 · 4개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>기존 PC몰 일부 화면의 응답 속도 지연(최대 4~5초) 개선</li>
             <li>최신 UI/UX 트렌드 반영을 통한 사용자 경험 개선</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>쿼리 속도 개선</li>
             <li>Spring Cache 적용(빈번 조회 데이터 캐싱)</li>
             <li>UI/UX 개선</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>주요 화면 응답 속도 3~5초 → 1~2초 단축</li>
             <li>최신 디자인 적용으로 PC 이탈률 감소 기대</li>
@@ -390,25 +612,24 @@
         </div>
       </div>
 
-      <!-- 모바일원 -->
-      <div class="row">
-        <div class="row-left">2022.03 — 2022.10<br /><span class="meta">8개월</span></div>
-        <div class="row-right">
-          <h3>
-            PC몰 리뉴얼<span class="row-right-up meta">&nbsp;(2022.03 - 2022.10, 8개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <!-- PC몰 리뉴얼 2 -->
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">PC몰 리뉴얼</div>
+        <div class="tl-sub">2022.03 — 2022.10 · 8개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>기존 PC몰 일부 화면의 응답 속도 지연(최대 4~5초) 개선</li>
             <li>최신 UI/UX 트렌드 반영을 통한 사용자 경험 개선</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>쿼리 속도 개선</li>
             <li>Spring Cache 적용(빈번 조회 데이터 캐싱)</li>
             <li>UI/UX 개선</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>주요 화면 응답 속도 3~5초 → 1~2초 단축</li>
             <li>최신 디자인 적용으로 PC 이탈률 감소 기대</li>
@@ -417,80 +638,53 @@
       </div>
 
       <!-- 보이는 ARS -->
-      <div class="row">
-        <div class="row-left">2021.09 — 2022.02<br /><span class="meta">6개월</span></div>
-        <div class="row-right">
-          <h3>
-            보이는 ARS<span class="row-right-up meta">&nbsp;(2021.09 - 2022.02, 6개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">보이는 ARS</div>
+        <div class="tl-sub">2021.09 — 2022.02 · 6개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>ARS 채널에서 주문/결제/상담 흐름을 시각화하여 고객 편의성 개선</li>
             <li>PG 연동을 포함한 주문 및 C/S 프로세스 구축</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>PG사 인터페이스 연동</li>
             <li>주문 및 C/S(배송지변경, 결제방법변경, 배송조회) 프로세스 설계 및 개발</li>
             <li>오픈 이후 안정화 작업 및 유지보수</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>현재 실제 서비스 안정적으로 운영 중</li>
           </ul>
         </div>
       </div>
 
-      <!-- 모바일원 -->
-      <!-- <div class="row">
-        <div class="row-left">2021.02 — 2021.06<br /><span class="meta">5개월</span></div>
-        <div class="row-right">
-          <h3>
-            모바일원<span class="row-right-up meta">&nbsp;(2021.02 - 2021.06, 5개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
-          <ul>
-            <li>ARS 채널에서 주문/결제/상담 흐름을 시각화하여 고객 편의성 개선</li>
-            <li>PG 연동을 포함한 주문 및 C/S 프로세스 구축</li>
-          </ul>
-          <div class="subttl">내 역할</div>
-          <ul>
-            <li>PG사 인터페이스 연동</li>
-            <li>주문 및 C/S 프로세스 설계 및 개발</li>
-            <li>오픈 이후 안정화 작업 및 유지보수</li>
-          </ul>
-          <div class="subttl">성과</div>
-          <ul>
-            <li>현재 실제 서비스 안정적으로 운영 중</li>
-          </ul>
-        </div>
-      </div> -->
-
-      <!-- 시스템 고도화 -->
-      <div class="row">
-        <div class="row-left">2020.01 — 2021.01<br /><span class="meta">1년 1개월</span></div>
-        <div class="row-right">
-          <h3>
-            기간계 시스템 고도화<span class="row-right-up meta">&nbsp;(2020.01 - 2021.01, 1년 1개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <!-- 기간계 시스템 고도화 -->
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">기간계 시스템 고도화</div>
+        <div class="tl-sub">2020.01 — 2021.01 · 1년 1개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>Adobe Flex 기반으로 구현된 BackOffice/Partner 시스템</li>
             <li>IE 지원 종료 및 느린 응답 속도 개선을 위해 레거시 시스템 전환 필요</li>
             <li>Javascript Framework(ExtJS)로 전환 및 주요 업무 고도화</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>레거시 시스템에 대한 분석</li>
             <li>프로젝트 인원을 대상으로 ExtJS 교육 진행</li>
-            <li>프로젝트 환경 구성 및<strong>&nbsp;코어/공통 모듈 개발(전환) 및 검증 (AA 역할)</strong></li>
-            <li>오류·기술 문의 창구 역할, 사내 R&D센터 협업</li>
+            <li>프로젝트 환경 구성 및 <strong>코어/공통 모듈 개발(전환) 및 검증 (AA 역할)</strong></li>
+            <li>오류·기술 문의 창구 역할, 사내 R&amp;D센터 협업</li>
             <li>CTI 연동 · 외부 상담시스템 연동</li>
             <li>Jeus, Webtob 설정 인프라 지원</li>
             <li><strong>Jenkins 기반 CI/CD</strong> 환경 설정 및 서버 배포 지원(배포 자동화)</li>
             <li>기존 인프라 구조 파악 및 신규 시스템 배포 파이프라인 정립</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>Adobe Flex 기반 레거시 시스템 JS 프레임워크로 전환 성공</li>
             <li>신규 시스템 안정적 오픈 및 <strong>현재까지 무중단 운영</strong></li>
@@ -499,28 +693,27 @@
         </div>
       </div>
 
-      <!-- 호주 홈쇼핑 시스템 구축 및 운영 -->
-      <div class="row">
-        <div class="row-left">2019.03 — 2019.12<br /><span class="meta">10개월</span></div>
-        <div class="row-right">
-          <h3>
-            호주 시스템 구축/운영<span class="row-right-up meta">&nbsp;(2019.03 - 2019.12, 10개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+      <!-- 호주 시스템 구축/운영 -->
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">호주 시스템 구축/운영</div>
+        <div class="tl-sub">2019.03 — 2019.12 · 10개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>첫 해외 출장 프로젝트로 신규 홈쇼핑 시스템 구축</li>
             <li>프로젝트 환경설정부터 개발/테스트/운영까지 <strong>전 과정 참여</strong></li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>CTI 인터페이스 개발</li>
             <li>ARS 시나리오에 따른 IVR API 연동 개발</li>
-            <li>BackOffice/Patner 화면 수정, SQL 쿼리 작성</li>
+            <li>BackOffice/Partner 화면 수정, SQL 쿼리 작성</li>
             <li>요구사항 및 현지화 반영(다국어 전환)</li>
             <li>PC, 모바일 수정사항 개발 지원</li>
             <li>운영 배포 후 초기 운영 지원</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>CTI 연동 DirectX 종속 구조를 Event-Driven 방식으로 전환하여 플랫폼 의존성 제거 및 유지보수성 향상</li>
             <li>호주 현지 테스트 및 수정으로 안정적 오픈 달성</li>
@@ -529,167 +722,174 @@
           </ul>
         </div>
       </div>
-    </section>
 
-    <!-- 사이드 프로젝트 -->
-    <section>
+    </div>
+
+    <!-- ── 사이드 프로젝트 ── -->
+    <div class="card">
       <h2>사이드 프로젝트</h2>
-      <div class="row">
-        <div class="row-left">2025.10 — 진행중</div>
-        <div class="row-right">
-          <h3>FitnessAI<span class="row-right-up meta">&nbsp;(2025.10 - 진행중)</span></h3>
-          <div class="subttl">프로젝트 개요</div>
-          <p>진행 중</p>
+
+      <!-- FitnessAI -->
+      <div class="exp-card">
+        <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;">진행중</span>
+        <div class="tl-title">FitnessAI (Fitness In Service)</div>
+        <div class="tl-sub">2025.10 — 진행중 · <a href="https://beta.fitness-trainer-assistant.ai.kr" target="_blank">beta.fitness-trainer-assistant.ai.kr</a></div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
+          <ul>
+            <li>헬스장 운영 전반을 관리하는 종합 플랫폼 — 센터·트레이너·회원·PT 세션·급여·GX 클래스 통합 관리</li>
+            <li>Domain-Driven Design 기반 Spring Boot 멀티모듈 구조 (BO API + MO API + Batch)</li>
+            <li><strong>BO API</strong>: 관리자 포털 (센터·트레이너·세션·급여·대시보드·결제)</li>
+            <li><strong>MO API</strong>: 회원 앱 (인증·GX 클래스 예약·마이페이지·장바구니·결제)</li>
+            <li><strong>Batch</strong>: PT 세션 합계 자동 집계 (매시 정각 실행)</li>
+          </ul>
+          <div class="proj-section-title">내 역할</div>
+          <ul>
+            <li>전체 아키텍처 설계 및 멀티모듈 프로젝트 환경 구성</li>
+            <li>BO API / MO API / Batch 전 기능 설계·개발·배포</li>
+          </ul>
+          <div class="proj-section-title">구현 내용 (완료)</div>
+          <ul>
+            <li>BO: 센터·장비·상품·트레이너 배정·상담이력 관리, PT 세션 및 신체기록, 급여 정산, GX 클래스 스케줄·예약·취소 관리, 월 매출/트레이너 랭킹/재등록율 대시보드, 수기 결제 및 결제 취소</li>
+            <li>MO: 이메일 회원가입·로그인, 이메일 인증, Kakao OAuth 소셜 로그인, GX 클래스 스케줄 조회·예약, 마이페이지(이용권·예약목록·포인트·쿠폰·출석·티어), 장바구니, <strong>Toss Payments 결제 연동</strong>, SSE 실시간 알림</li>
+            <li>AWS EC2 배포, Docker 컨테이너화, Nginx 리버스 프록시, SSL 적용</li>
+            <li>Redis 기반 세션 관리, JWT Access/Refresh 토큰 인증 구조</li>
+            <li>TraceId AOP, P6Spy SQL 로깅, Spring Mail + Thymeleaf 이메일 발송</li>
+          </ul>
+          <div class="proj-section-title">사용 기술</div>
+          <div class="chips" style="margin-top:6px;">
+            <span class="tag tag-accent">Java 17</span>
+            <span class="tag tag-accent">Spring Boot 4.0</span>
+            <span class="tag tag-accent">Spring Batch</span>
+            <span class="tag tag-accent">MyBatis</span>
+            <span class="tag tag-accent">Gradle 멀티모듈</span>
+            <span class="tag tag-green">MariaDB (AWS RDS)</span>
+            <span class="tag tag-green">Redis</span>
+            <span class="tag tag-green">JWT (JJWT)</span>
+            <span class="tag tag-green">AWS EC2</span>
+            <span class="tag tag-green">Docker</span>
+            <span class="tag tag-green">Nginx</span>
+            <span class="tag tag-sky">Toss Payments</span>
+            <span class="tag tag-sky">Kakao OAuth</span>
+            <span class="tag tag-sky">SSE</span>
+            <span class="tag tag-sky">SpringDoc OpenAPI</span>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="row-left">2023.01 — 2024.06<br /><span class="meta">1년 6개월</span></div>
-        <div class="row-right">
-          <h3>
-            Deepit<span class="row-right-up meta">&nbsp;(2023.01 - 2024.06, 1년 6개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+
+      <!-- Deepit -->
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">Deepit</div>
+        <div class="tl-sub">2023.01 — 2024.06 · 1년 6개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>주식 관련 정보 제공 애플리케이션</li>
             <li>데이터 수집 및 가공하여 실시간 제공</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>API 및 배치(Quartz 스케줄러) 개발</li>
             <li>데이터 수집/자동화(집계) 및 가공</li>
             <li>API 기능 명세서 작성</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
-            <li>데이터 수집 후 가공하여 정보 제공</li>
             <li>JPA, QueryDSL 적용</li>
-            <li>JWT, 소셜로그인 (애플, 카카오) 적용</li>
-            <li>Android, Ios 구독 결제 적용</li>
-            <li>텔레그램 봇 연동</li>
-            <li>앱 푸시 개발 (firebase)</li>
-            <li>AWS EC2 환경설정 및 NGINX 서버 배포</li>
-            <li>SSL 적용 (Let's Encrypt)</li>
+            <li>JWT, 소셜로그인(애플, 카카오) 적용</li>
+            <li>Android, iOS 구독 결제 적용</li>
+            <li>텔레그램 봇 연동 / 앱 푸시(Firebase)</li>
+            <li>AWS EC2 환경설정 및 NGINX 서버 배포 / SSL 적용(Let's Encrypt)</li>
           </ul>
-          <div class="subttl">문제 해결</div>
+          <div class="proj-section-title">사용 기술</div>
+          <div class="chips" style="margin-top:6px;">
+            <span class="tag tag-accent">Spring Boot</span>
+            <span class="tag tag-accent">Spring Batch</span>
+            <span class="tag tag-accent">Gradle</span>
+            <span class="tag tag-accent">JPA</span>
+            <span class="tag tag-accent">QueryDSL</span>
+            <span class="tag tag-accent">JWT</span>
+            <span class="tag tag-green">AWS EC2</span>
+            <span class="tag tag-green">NGINX</span>
+          </div>
+          <div class="proj-section-title">링크</div>
           <ul>
-            <li>CORS 해결</li>
-          </ul>
-          <div class="subttl">사용 기술</div>
-          <ul>
-            <li>Spring Boot, Spring Batch, Gradle</li>
-            <li>JPA, QueryDSL</li>
-            <li>JWT</li>
-            <li>AWS EC2, NGINX</li>
-          </ul>
-          <div class="subttl">링크</div>
-          <ul>
-            <li>GitLab: <a href="https://gitlab.com/deepit-labs" target="_blank">https://gitlab.com/deepit-labs</a></li>
-            <li>
-              <a href="sideprojects/deepit.html" target="_blank">프로젝트 이미지</a>
-            </li>
+            <li>GitLab: <a href="https://gitlab.com/deepit-labs" target="_blank">gitlab.com/deepit-labs</a></li>
+            <li><a href="sideprojects/deepit.html" target="_blank">프로젝트 이미지</a></li>
           </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="row-left">2020.10 — 2020.11<br /><span class="meta">2개월</span></div>
-        <div class="row-right">
-          <h3>
-            학원 페이지<span class="row-right-up meta">&nbsp;(2023.01 - 2024.06, 1년 6개월)</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
+
+      <!-- 학원 페이지 -->
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">학원 페이지</div>
+        <div class="tl-sub">2020.10 — 2020.11 · 2개월</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
           <ul>
             <li>학원 정보를 소개하는 웹 페이지</li>
             <li>별도의 UI/UX 프레임워크/라이브러리 없이 제작</li>
           </ul>
-          <div class="subttl">내 역할</div>
+          <div class="proj-section-title">내 역할</div>
           <ul>
             <li>프로젝트 환경 설정 및 관리</li>
             <li>메인 화면, 공통 영역 개발 및 서버 배포</li>
             <li>테스트 케이스 작성 및 테스트 진행</li>
           </ul>
-          <div class="subttl">성과</div>
+          <div class="proj-section-title">성과</div>
           <ul>
             <li>반응형 웹(모바일, 태블릿, PC)</li>
-            <li>HTML, Javascript, CSS 실력 상승</li>
             <li>카카오 지도 API 연동</li>
           </ul>
-          <div class="subttl">사용 기술</div>
+          <div class="proj-section-title">사용 기술</div>
+          <div class="chips" style="margin-top:6px;">
+            <span class="tag tag-sky">JSP</span>
+            <span class="tag tag-sky">HTML</span>
+            <span class="tag tag-sky">Javascript</span>
+            <span class="tag tag-sky">CSS</span>
+          </div>
+          <div class="proj-section-title">링크</div>
           <ul>
-            <li>JSP, HTML, Javascript, CSS</li>
-          </ul>
-          <div class="subttl">링크</div>
-          <ul>
-            <li>GitLab: <a href="https://gitlab.com/whor/educational-institute" target="_blank">https://gitlab.com/whor/educational-institute</a></li>
-            <li>
-              <a href="sideprojects/educational-institute.html" target="_blank">프로젝트 이미지</a>
-            </li>
+            <li>GitLab: <a href="https://gitlab.com/whor/educational-institute" target="_blank">gitlab.com/whor/educational-institute</a></li>
+            <li><a href="sideprojects/educational-institute.html" target="_blank">프로젝트 이미지</a></li>
           </ul>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="row-left"><span class="meta"></span></div>
-        <div class="row-right">
-          <h3>
-            <span class="row-right-up meta">&nbsp;()</span>
-          </h3>
-          <div class="subttl">프로젝트 개요</div>
-          <p></p>
-          <div class="subttl">내 역할</div>
-          <ul>
-            <li></li>
-          </ul>
-          <div class="subttl">성과</div>
-          <ul>
-            <li></li>
-          </ul>
-          <div class="subttl">링크</div>
-          <ul>
-            <li></li>
-          </ul>
-        </div>
-      </div> -->
-    </section>
 
-    <!-- 교육/자격 -->
-    <section>
+    </div>
+
+    <!-- ── 교육 · 자격 ── -->
+    <div class="card">
       <h2>교육 · 자격</h2>
-      <ul>
+      <ul class="simple-list">
         <li>도쿄 코코로일본어학교 (<a href="https://www.tokyococoro.jp/ko" target="_blank">東京こころ日本語学校</a>, 6개월)</li>
-        <li>일본어 능력 시험 - JLPT N3 (2025)</li>
+        <li>일본어 능력 시험 — JLPT N3 (2025)</li>
         <li>정보처리기사 (2018)</li>
-        <li>Java&Python 기반 응용SW 개발자 양성과정 (2018, 7개월)</li>
+        <li>Java&amp;Python 기반 응용SW 개발자 양성과정 (2018, 7개월)</li>
       </ul>
-    </section>
+    </div>
 
-    <!-- 그 외 -->
-    <section>
+    <!-- ── 그 외 ── -->
+    <div class="card">
       <h2>그 외</h2>
 
-      <ul>
-        <li>
-          <h3>기술 블로그</h3>
-          <a href="https://diary-developer.tistory.com/category/개발%20이야기" target="_blank">https://diary-developer.tistory.com</a>
-          <p>
-            새롭게 배운 개발 관련 지식 공유를 위한 기술 블로그 운영하고 있습니다.
-            2022년 부터 작성하여 70만 이상의 누적 조회수를 달성했습니다.
-          </p>
-        </li>
-        <li>
-          <h3>워킹 홀리데이&nbsp;<span class="meta">2024.12 - 2025.11 (11개월)</span></h3>
-          <p>
-            2025년 11월 퇴사 후 12월에 일본으로 워킹 홀리데이를 떠났습니다.
-            제 인생에서의 새로운 도전이자 경험이 된 소중한 시간이었습니다.
-            다양한 사람들을 만나고, 새로운 문화를 경험하며 시야를 넓힐 수 있었습니다.
-            이 경험을 통해 얻은 교훈과 성장한 점들을 앞으로의 삶과 커리어에 잘 녹여내고자 합니다.
-          </p>
-          <p>
-            <a href="sideprojects/japanese.html" target="_blank">일본어학교 수료증 및 출석/성적표</a>
-          </p>
-        </li>
-      </ul>
-    </section>
+      <div class="extra-card">
+        <div class="extra-title">기술 블로그</div>
+        <div class="extra-meta"><a href="https://diary-developer.tistory.com/category/개발%20이야기" target="_blank">diary-developer.tistory.com</a></div>
+        <p>새롭게 배운 개발 관련 지식 공유를 위한 기술 블로그를 운영하고 있습니다. 2022년부터 작성하여 70만 이상의 누적 조회수를 달성했습니다.</p>
+      </div>
 
-    <footer style="text-align:center; font-size:13px; color:#64748b; margin-top:22px">© 2025 김성진 · GitHub Pages</footer>
+      <div class="extra-card">
+        <div class="extra-title">워킹 홀리데이 · 일본</div>
+        <div class="extra-meta">2024.12 — 2025.11 (11개월)</div>
+        <p>퇴사 후 일본으로 워킹 홀리데이를 떠났습니다. 다양한 사람들을 만나고 새로운 문화를 경험하며 시야를 넓힐 수 있었습니다. 이 경험을 통해 얻은 교훈과 성장한 점들을 앞으로의 삶과 커리어에 잘 녹여내고자 합니다.</p>
+        <p style="margin-top:8px;"><a href="sideprojects/japanese.html" target="_blank">일본어학교 수료증 및 출석/성적표</a></p>
+      </div>
+    </div>
+
+    <footer>© 2025 김성진 · GitHub Pages</footer>
   </div>
 </body>
 </html>
