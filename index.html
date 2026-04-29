@@ -24,6 +24,7 @@
       --tag-text: #334155;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     html, body { height: 100%; }
     body {
       background-color: var(--bg);
@@ -38,11 +39,43 @@
       margin: 0 auto;
       padding: 32px 20px 60px;
     }
-    a {
-      color: var(--link);
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── STICKY NAV ── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(15,23,42,.08);
+    }
+    .nav-inner {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 6px;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-item {
+      flex-shrink: 0;
+      padding: 11px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
       text-decoration: none;
     }
-    a:hover { text-decoration: underline; }
+    .nav-item:hover { color: var(--accent); text-decoration: none; }
+    .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* ── HEADER ── */
     header {
@@ -50,7 +83,7 @@
       color: #fff;
       border-radius: 16px;
       padding: 40px 44px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       position: relative;
       overflow: hidden;
     }
@@ -116,6 +149,7 @@
       text-transform: uppercase;
       min-width: 54px;
     }
+    .btn-group { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
     .btn {
       border: 1px solid rgba(255,255,255,.2);
       background: rgba(255,255,255,.08);
@@ -127,8 +161,43 @@
       font-weight: 500;
       white-space: nowrap;
       transition: background .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
     }
-    .btn:hover { background: rgba(255,255,255,.15); }
+    .btn:hover { background: rgba(255,255,255,.16); text-decoration: none; color: #e2e8f0; }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: flex;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(15,23,42,.06);
+    }
+    .stat-item {
+      flex: 1;
+      padding: 18px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      font-weight: 500;
+    }
 
     /* ── CARD ── */
     .card {
@@ -152,6 +221,7 @@
       align-items: center;
       gap: 10px;
     }
+    .h2-icon { font-style: normal; font-size: 15px; }
     h2::before {
       content: '';
       display: inline-block;
@@ -169,11 +239,7 @@
     }
 
     /* ── INTRO ── */
-    .intro-text {
-      font-size: 15px;
-      line-height: 1.85;
-      color: #334155;
-    }
+    .intro-text { font-size: 15px; line-height: 1.85; color: #334155; }
     .intro-text strong { color: var(--text); }
 
     /* ── SKILLS ── */
@@ -187,11 +253,7 @@
       color: var(--muted);
       margin-bottom: 10px;
     }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag {
       background: var(--tag-bg);
       color: var(--tag-text);
@@ -200,36 +262,20 @@
       font-size: 13px;
       font-weight: 500;
       border: 1px solid var(--border);
+      transition: transform .12s, box-shadow .12s;
     }
-    .tag-accent {
-      background: var(--accent-light);
-      color: var(--accent);
-      border-color: #c7d2fe;
-    }
-    .tag-sky {
-      background: #f0f9ff;
-      color: #0369a1;
-      border-color: #bae6fd;
-    }
-    .tag-green {
-      background: #f0fdf4;
-      color: #15803d;
-      border-color: #bbf7d0;
-    }
+    .tag:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(15,23,42,.1); }
+    .tag-accent { background: var(--accent-light); color: var(--accent); border-color: #c7d2fe; }
+    .tag-sky { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+    .tag-green { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
 
     /* ── TIMELINE ROW ── */
     .tl-list { display: flex; flex-direction: column; gap: 0; }
-    .tl-item {
-      display: flex;
-      gap: 0;
-      position: relative;
-    }
+    .tl-item { display: flex; gap: 0; position: relative; }
     .tl-item:not(:last-child)::before {
       content: '';
       position: absolute;
-      left: 134px;
-      top: 28px;
-      bottom: 0;
+      left: 134px; top: 28px; bottom: 0;
       width: 1px;
       background: var(--border);
     }
@@ -243,43 +289,19 @@
     .tl-left::after {
       content: '';
       position: absolute;
-      right: -5px;
-      top: 8px;
+      right: -5px; top: 8px;
       width: 10px; height: 10px;
       border-radius: 50%;
       background: var(--accent);
       border: 2px solid var(--card);
       box-shadow: 0 0 0 2px var(--accent);
     }
-    .tl-date {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.4;
-    }
-    .tl-duration {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .tl-right {
-      flex: 1;
-      padding-bottom: 32px;
-      padding-left: 20px;
-    }
+    .tl-date { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .tl-duration { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .tl-right { flex: 1; padding-bottom: 32px; padding-left: 20px; }
     .tl-item:last-child .tl-right { padding-bottom: 0; }
-
-    .tl-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-    .tl-sub {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
+    .tl-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .tl-sub { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
 
     /* ── PROJECT BLOCK ── */
     .proj-block { margin-top: 10px; }
@@ -293,16 +315,8 @@
       padding-left: 8px;
       border-left: 2px solid #c7d2fe;
     }
-    .proj-block ul {
-      margin: 0 0 0 16px;
-      padding: 0;
-    }
-    .proj-block li {
-      font-size: 14px;
-      color: #334155;
-      line-height: 1.75;
-      padding: 1px 0;
-    }
+    .proj-block ul { margin: 0 0 0 16px; padding: 0; }
+    .proj-block li { font-size: 14px; color: #334155; line-height: 1.75; padding: 1px 0; }
     .proj-block strong { color: var(--text); }
 
     /* ── EXPERIENCE CARD ── */
@@ -338,72 +352,47 @@
       margin-bottom: 8px;
     }
 
-    /* ── SIMPLE LIST SECTION ── */
-    .simple-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .simple-list li {
-      position: relative;
-      padding-left: 16px;
-    }
+    /* ── SIMPLE LIST ── */
+    .simple-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+    .simple-list li { position: relative; padding-left: 16px; }
     .simple-list li::before {
       content: '·';
       color: var(--accent);
       font-weight: 700;
       font-size: 18px;
       position: absolute;
-      left: 0;
-      top: 0;
+      left: 0; top: 0;
       line-height: 1.8;
     }
 
-    /* ── EXTRA SECTION ── */
+    /* ── EXTRA CARD ── */
     .extra-card {
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 22px 24px;
       margin-bottom: 14px;
+      transition: box-shadow .2s, border-color .2s;
     }
+    .extra-card:hover { box-shadow: 0 4px 16px rgba(15,23,42,.08); border-color: #c7d2fe; }
     .extra-card:last-child { margin-bottom: 0; }
-    .extra-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .extra-meta {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .extra-card p {
-      font-size: 14px;
-      color: #334155;
-      line-height: 1.8;
-      margin-top: 8px;
-    }
+    .extra-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .extra-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .extra-card p { font-size: 14px; color: #334155; line-height: 1.8; margin-top: 8px; }
 
     /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 12px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
+    footer { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--border); }
 
     /* ── PULSE ── */
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
     .pulse { animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── PRINT ── */
     @media print {
@@ -412,6 +401,8 @@
       .card { box-shadow: none; border-color: #e2e8f0; }
       header { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .pulse { animation: none; }
+      .sticky-nav, .stats-strip { display: none; }
+      .reveal { opacity: 1; transform: none; }
     }
 
     /* ── MOBILE ── */
@@ -425,13 +416,15 @@
       .tl-right { padding-left: 0; padding-bottom: 24px; }
       .print-hide { display: none !important; }
       .exp-card:hover { transform: none; }
-      /* GitLab 두 링크 세로 정렬 */
       .contact-row { flex-wrap: wrap; gap: 4px; }
-      /* 긴 프로젝트명 + 진행중 뱃지 줄바꿈 허용 */
       .tl-title { flex-wrap: wrap; }
-      /* 교육·자격 섹션 overflow 방지 */
       .simple-list li { word-break: break-word; overflow-wrap: break-word; }
       .extra-card { padding: 16px; }
+      .stats-strip { flex-wrap: wrap; }
+      .stat-item { flex: 0 0 50%; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(2n) { border-right: none; }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+      .nav-item { padding: 10px 10px; font-size: 12px; }
     }
   </style>
 </head>
@@ -439,7 +432,7 @@
   <div class="wrap">
 
     <!-- ── HEADER ── -->
-    <header>
+    <header id="top">
       <div class="headbar">
         <div>
           <h1>김성진 <span style="font-weight:400;font-size:22px;color:#94a3b8;">(KIM SEONGJIN)</span></h1>
@@ -461,15 +454,51 @@
             </div>
           </div>
         </div>
-        <div class="print-hide" style="flex-shrink:0;">
-          <button class="btn" onclick="window.print()">PDF로 저장</button>
+        <div class="print-hide btn-group" style="flex-shrink:0;">
+          <button class="btn" onclick="window.print()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            PDF로 저장
+          </button>
         </div>
       </div>
     </header>
 
+    <!-- ── STICKY NAV ── -->
+    <nav class="sticky-nav print-hide">
+      <div class="nav-inner">
+        <a class="nav-item active" href="#intro">소개</a>
+        <a class="nav-item" href="#skills">기술</a>
+        <a class="nav-item" href="#career">경력</a>
+        <a class="nav-item" href="#projects">프로젝트</a>
+        <a class="nav-item" href="#side">사이드</a>
+        <a class="nav-item" href="#education">교육</a>
+        <a class="nav-item" href="#etc">그 외</a>
+      </div>
+    </nav>
+
+    <!-- ── STATS STRIP ── -->
+    <div class="stats-strip reveal">
+      <div class="stat-item">
+        <div class="stat-num">6년+</div>
+        <div class="stat-label">개발 경력</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8개+</div>
+        <div class="stat-label">대형 프로젝트</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">70만+</div>
+        <div class="stat-label">블로그 조회수</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3개</div>
+        <div class="stat-label">사이드 프로젝트</div>
+      </div>
+    </div>
+
     <!-- ── 소개 ── -->
-    <div class="card">
-      <h2>소개</h2>
+    <div class="card reveal" id="intro">
+      <h2><span class="h2-icon">👤</span>소개</h2>
       <p class="intro-text">
         E-커머스 백엔드 전문 개발자로, <strong>상품·주문·프로모션·클레임</strong> 등 핵심 도메인을 5년간 설계·개발·운영했습니다.<br /><br />
         <strong>Java/Spring</strong>과 <strong>Oracle</strong> 기반 대규모 백오피스 환경에서 성능 최적화, 안정성 확보, CI/CD 자동화를 통해 비즈니스 성과로 연결되는 개발을 해왔으며, 대규모 트래픽 최적화·신규 서비스 론칭·레거시 전환까지 폭넓은 프로젝트 경험을 보유하고 있습니다.
@@ -477,8 +506,8 @@
     </div>
 
     <!-- ── 핵심 기술 ── -->
-    <div class="card">
-      <h2>핵심 기술</h2>
+    <div class="card reveal" id="skills">
+      <h2><span class="h2-icon">⚙️</span>핵심 기술</h2>
       <div class="skill-group">
         <div class="skill-group-title">Backend</div>
         <div class="chips">
@@ -522,8 +551,8 @@
     </div>
 
     <!-- ── 경력 ── -->
-    <div class="card">
-      <h2>경력</h2>
+    <div class="card reveal" id="career">
+      <h2><span class="h2-icon">💼</span>경력</h2>
       <div class="tl-list">
         <div class="tl-item">
           <div class="tl-left">
@@ -559,26 +588,20 @@
     </div>
 
     <!-- ── 대표 프로젝트 ── -->
-    <div class="card">
-      <h2>대표 프로젝트</h2>
+    <div class="card reveal" id="projects">
+      <h2><span class="h2-icon">🏆</span>대표 프로젝트</h2>
 
-      <!-- 현대백화점 -->
       <div class="exp-card">
         <div class="tl-title" style="display:flex;align-items:center;gap:8px;">현대백화점 <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">진행중</span></div>
         <div class="tl-sub">2025.11 — 현재</div>
         <div class="proj-block">
           <div class="proj-section-title">프로젝트 개요</div>
-          <ul>
-            <li>진행 중</li>
-          </ul>
+          <ul><li>진행 중</li></ul>
           <div class="proj-section-title">내 역할</div>
-          <ul>
-            <li>진행 중</li>
-          </ul>
+          <ul><li>진행 중</li></ul>
         </div>
       </div>
 
-      <!-- 할인권 프로모션 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">할인권 프로모션</div>
@@ -590,9 +613,7 @@
             <li>주문 시 할인이 자동 적용되도록 프로세스 개발</li>
           </ul>
           <div class="proj-section-title">내 역할</div>
-          <ul>
-            <li>백오피스 주문 및 C/S 프로세스에 할인권 적용 로직 개발</li>
-          </ul>
+          <ul><li>백오피스 주문 및 C/S 프로세스에 할인권 적용 로직 개발</li></ul>
           <div class="proj-section-title">성과</div>
           <ul>
             <li>주문 시 자동할인 적용으로 고객 편의성 증대</li>
@@ -601,7 +622,6 @@
         </div>
       </div>
 
-      <!-- 카드즉시할인 프로모션 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">카드즉시할인 프로모션</div>
@@ -628,7 +648,6 @@
         </div>
       </div>
 
-      <!-- 전시 모듈화 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">전시 모듈화</div>
@@ -653,7 +672,6 @@
         </div>
       </div>
 
-      <!-- PC몰 리뉴얼 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">PC몰 리뉴얼</div>
@@ -678,8 +696,6 @@
         </div>
       </div>
 
-
-      <!-- 보이는 ARS -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">보이는 ARS</div>
@@ -697,13 +713,10 @@
             <li>오픈 이후 안정화 작업 및 유지보수</li>
           </ul>
           <div class="proj-section-title">성과</div>
-          <ul>
-            <li>현재 실제 서비스 안정적으로 운영 중</li>
-          </ul>
+          <ul><li>현재 실제 서비스 안정적으로 운영 중</li></ul>
         </div>
       </div>
 
-      <!-- 기간계 시스템 고도화 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">기간계 시스템 고도화</div>
@@ -735,7 +748,6 @@
         </div>
       </div>
 
-      <!-- 호주 시스템 구축/운영 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">호주 시스템 구축/운영</div>
@@ -768,10 +780,9 @@
     </div>
 
     <!-- ── 사이드 프로젝트 ── -->
-    <div class="card">
-      <h2>사이드 프로젝트</h2>
+    <div class="card reveal" id="side">
+      <h2><span class="h2-icon">🚀</span>사이드 프로젝트</h2>
 
-      <!-- FitnessAI -->
       <div class="exp-card">
         <div class="tl-title" style="display:flex;align-items:center;gap:8px;">FitnessAI <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">진행중</span></div>
         <div class="tl-sub">2025.10 — 진행중 · <a href="https://beta.fitness-trainer-assistant.ai.kr" target="_blank">beta.fitness-trainer-assistant.ai.kr</a></div>
@@ -818,7 +829,6 @@
         </div>
       </div>
 
-      <!-- Deepit -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">Deepit</div>
@@ -862,7 +872,6 @@
         </div>
       </div>
 
-      <!-- 학원 페이지 -->
       <div class="exp-card">
         <span class="proj-badge">Project</span>
         <div class="tl-title">학원 페이지</div>
@@ -902,8 +911,8 @@
     </div>
 
     <!-- ── 교육 · 자격 ── -->
-    <div class="card">
-      <h2>교육 · 자격</h2>
+    <div class="card reveal" id="education">
+      <h2><span class="h2-icon">📚</span>교육 · 자격</h2>
       <ul class="simple-list">
         <li>도쿄 코코로일본어학교 (<a href="https://www.tokyococoro.jp/ko" target="_blank">東京こころ日本語学校</a>, 6개월)</li>
         <li>일본어 능력 시험 — JLPT N3 (2025)</li>
@@ -913,8 +922,8 @@
     </div>
 
     <!-- ── 그 외 ── -->
-    <div class="card">
-      <h2>그 외</h2>
+    <div class="card reveal" id="etc">
+      <h2><span class="h2-icon">✨</span>그 외</h2>
 
       <div class="extra-card">
         <div class="extra-title">기술 블로그</div>
@@ -932,5 +941,47 @@
 
     <footer>© 2026 김성진 · GitHub Pages</footer>
   </div>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Active nav tracking
+    const sections = ['intro','skills','career','projects','side','education','etc'];
+    const navItems = document.querySelectorAll('.nav-item');
+    const sectionEls = sections.map(id => document.getElementById(id));
+
+    function updateActiveNav() {
+      const scrollY = window.scrollY + 100;
+      let current = sections[0];
+      sectionEls.forEach((el, i) => {
+        if (el && el.offsetTop <= scrollY) current = sections[i];
+      });
+      navItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // Smooth scroll for nav clicks
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = item.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
 </body>
 </html>
