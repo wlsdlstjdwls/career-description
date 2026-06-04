@@ -531,6 +531,17 @@
         </div>
       </div>
       <div class="skill-group">
+        <div class="skill-group-title">AI / Data</div>
+        <div class="chips">
+          <span class="tag tag-accent">Python</span>
+          <span class="tag tag-accent">FastAPI</span>
+          <span class="tag tag-accent">pandas · scikit-learn</span>
+          <span class="tag tag-accent">Claude API</span>
+          <span class="tag tag-accent">Gemini API</span>
+          <span class="tag tag-accent">TabPFN · LightGBM</span>
+        </div>
+      </div>
+      <div class="skill-group">
         <div class="skill-group-title">Data / Infra</div>
         <div class="chips">
           <span class="tag tag-green">Oracle · PL/SQL</span>
@@ -561,9 +572,10 @@
           </div>
           <div class="tl-right">
             <div class="tl-title">커머스웨어 <span class="pulse" style="font-size:13px;font-weight:400;color:#059669;">● 재직 중</span></div>
-            <div class="tl-sub">백엔드 개발자 · 현대백화점 프로젝트</div>
+            <div class="tl-sub">백엔드 개발자 · 주문팀 프론트 API</div>
             <ul style="margin: 6px 0 0 16px; padding:0;">
-              <li style="font-size:14px;color:#334155;line-height:1.75;">현대백화점 프로젝트 개발 진행 중</li>
+              <li style="font-size:14px;color:#334155;line-height:1.75;">현대백화점 NCP 구축 프로젝트 완료 (2025.11 — 2026.04)</li>
+              <li style="font-size:14px;color:#334155;line-height:1.75;">더현대·투홈 플랫폼 통합 고도화 — 주문상세·고객자산·사은행사·선물받기 API 개발 및 운영</li>
             </ul>
           </div>
         </div>
@@ -592,13 +604,82 @@
       <h2><span class="h2-icon">🏆</span>대표 프로젝트</h2>
 
       <div class="exp-card">
-        <div class="tl-title" style="display:flex;align-items:center;gap:8px;">현대백화점 <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">진행중</span></div>
-        <div class="tl-sub">2025.11 — 현재</div>
+        <div class="tl-title" style="display:flex;align-items:center;gap:8px;">프로모션 효율성 분석 AI 에이전트 <span class="proj-badge" style="background:#fef3c7;color:#b45309;border:1px solid #fde68a;margin:0;">파일럿 운영중</span></div>
+        <div class="tl-sub">2025.11 — 현재 · 사내 자체 과제</div>
         <div class="proj-block">
           <div class="proj-section-title">프로젝트 개요</div>
-          <ul><li>진행 중</li></ul>
+          <ul>
+            <li>프로모션 실적 데이터를 AI가 자연어로 분석·해석하는 사내 자체 과제</li>
+            <li>Python(pandas/scikit-learn)으로 통계 계산 후 <strong>Claude · Gemini · Groq · Ollama</strong> 멀티 AI 프로바이더가 결과 해석 — AI에게 원시 데이터 전달 금지 원칙 준수</li>
+            <li>FastAPI 백엔드 + React+Vite 프론트엔드, PostgreSQL, SSE 스트리밍 챗봇</li>
+          </ul>
           <div class="proj-section-title">내 역할</div>
-          <ul><li>진행 중</li></ul>
+          <ul>
+            <li>전체 아키텍처 설계 (4계층 클린 아키텍처: routers / services / analysis / infra)</li>
+            <li>분석 엔진 개발: Lift(DiD), 가격 탄력성(선형·곡선 회귀), 구매 트리거(분위수), TabPFN+LightGBM+Ridge 앙상블</li>
+            <li>멀티 AI 프로바이더 라우팅 설계 — 모델명 패턴으로 Claude·Gemini·Groq·Ollama 자동 선택</li>
+            <li>의도 분류 13종(lift / elasticity / trigger / forecasting / what-if 등) 챗봇 오케스트레이션</li>
+            <li>이상 탐지·Root Cause 분석·RAG 서비스(768차원 코사인)·일일 리포트 자동 생성 구현</li>
+            <li>Claude 프롬프트 캐싱(policies/*.md + cache_control: ephemeral), AI 응답 전량 DB 저장</li>
+            <li>Slack/SMTP 알림(24h 디바운스), APScheduler 백그라운드 스케줄러</li>
+          </ul>
+          <div class="proj-section-title">성과</div>
+          <ul>
+            <li>Phase 0~P2-2 전 단계 완료, 파일럿 운영 단계 진행 중</li>
+            <li>16개 정책 파일 MD5 버저닝으로 AI 응답 재현성 확보</li>
+            <li>프로모션 사전 시뮬레이션·백테스트·이상 탐지 자동화로 분석 리드타임 단축</li>
+          </ul>
+          <div class="proj-section-title">사용 기술</div>
+          <div class="chips" style="margin-top:6px;">
+            <span class="tag tag-accent">Python</span>
+            <span class="tag tag-accent">FastAPI</span>
+            <span class="tag tag-accent">pandas · scikit-learn</span>
+            <span class="tag tag-accent">TabPFN · LightGBM</span>
+            <span class="tag tag-sky">React + Vite</span>
+            <span class="tag tag-sky">Zustand</span>
+            <span class="tag tag-sky">SSE</span>
+            <span class="tag tag-green">PostgreSQL</span>
+            <span class="tag tag-green">Docker</span>
+            <span class="tag tag-green">Claude API</span>
+            <span class="tag tag-green">Gemini API</span>
+            <span class="tag tag-green">Groq API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <span class="proj-badge">Project</span>
+        <div class="tl-title">현대백화점 NCP 구축</div>
+        <div class="tl-sub">2025.11 — 2026.04 · 약 6개월 (중도 합류) · 더현대 · 투홈 플랫폼 통합 고도화</div>
+        <div class="proj-block">
+          <div class="proj-section-title">프로젝트 개요</div>
+          <ul>
+            <li>현대백화점 더현대·투홈 플랫폼 통합 및 고도화 — NCP(New Commerce Platform) 구축</li>
+            <li>주문팀 프론트 API 담당으로 중도 합류하여 인수인계 후 개발·운영 전 과정 수행</li>
+          </ul>
+          <div class="proj-section-title">담당 API</div>
+          <ul>
+            <li>주문상세 API</li>
+            <li>고객자산 API — 예치금 · H.Point · RSVP · 바우처</li>
+            <li>사은행사 API</li>
+            <li>선물받기 API</li>
+          </ul>
+          <div class="proj-section-title">내 역할</div>
+          <ul>
+            <li>인수인계 받은 API 영역 개발 및 운영 대응 수행</li>
+            <li>담당 API 기능 개발 및 운영 안정화</li>
+            <li>오픈 직전 변경 요청에 대해 영향 범위 분석 및 안정적 반영</li>
+          </ul>
+          <div class="proj-section-title">이슈 대응 사례</div>
+          <ul>
+            <li><strong>바우처 정책 변경 대응</strong> — 옵션 포맷 가변화로 SUBSTR 파싱 오류 발생, 영향 쿼리 전수 도출 후 정규식으로 일괄 교체 · 유/무 케이스 검증 완료</li>
+          </ul>
+          <div class="proj-section-title">성과</div>
+          <ul>
+            <li>통합 플랫폼 오픈 일정 내 안정적 마무리</li>
+            <li>고객 자산 도메인(포인트·바우처·예치금) 및 복합 주문 흐름 End-to-End 경험</li>
+            <li>레거시 구조 분석·적응 역량 및 공통화·표준화 필요성 체감</li>
+          </ul>
         </div>
       </div>
 
