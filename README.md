@@ -18,6 +18,7 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 |------|------|
 | Backend | Java, Spring MVC, Spring Boot, Spring Batch, JWT, Maven, Gradle |
 | Frontend | Javascript ES5/ES6, React, ExtJS, jQuery |
+| AI / Data | Python, FastAPI, pandas, scikit-learn, Claude API, Gemini API, TabPFN, LightGBM |
 | Data / Infra | Oracle, MariaDB, MyBatis, JPA, QueryDSL, Redis, AWS EC2, Docker, Nginx, Jenkins |
 
 ---
@@ -26,7 +27,7 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 
 | 기간 | 회사 | 역할 |
 |------|------|------|
-| 2025.11 — 현재 | 커머스웨어 (재입사) | 백엔드 개발자 · 현대백화점 프로젝트 진행 중 |
+| 2025.11 — 현재 | 커머스웨어 (재입사) | 백엔드 개발자 · 주문팀 프론트 API · 더현대·투홈 플랫폼 통합 고도화 |
 | 2019.01 — 2024.11 | 커머스웨어 | 백엔드 개발자 · E-커머스 플랫폼 개발/운영 |
 
 ---
@@ -35,7 +36,8 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 
 | 프로젝트 | 기간 | 설명 |
 |---------|------|------|
-| 현대백화점 | 2025.11 — 현재 | 현대백화점 프로젝트 진행 중 |
+| 프로모션 효율성 분석 AI 에이전트 | 2025.11 — 현재 | 프로모션 실적 데이터 AI 분석 사내 자체 과제 (FastAPI + Claude/Gemini/Groq 멀티 프로바이더) |
+| 현대백화점 NCP 구축 | 2025.11 — 2026.04 | 더현대·투홈 플랫폼 통합 — 주문상세·고객자산·사은행사·선물받기 API |
 | 할인권 프로모션 | 2024.08 — 2024.10 | 고객 등급별 할인권 자동 지급 및 주문 적용 |
 | 카드즉시할인 프로모션 | 2024.01 — 2024.07 | 결제 단계 즉시할인 프로세스 신규 개발 |
 | 전시 모듈화 | 2023.10 — 2023.12 | 컴포넌트 단위 전시 구성 시스템 개발 |
@@ -50,16 +52,34 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 
 | 프로젝트 | 기간 | 설명 | 링크 |
 |---------|------|------|------|
-| FitnessAI (Fitness In Service) | 2025.10 — 진행중 | 헬스장 통합 관리 플랫폼 (Spring Boot 멀티모듈) | [beta.fitness-trainer-assistant.ai.kr](https://beta.fitness-trainer-assistant.ai.kr) |
-| Deepit | 2023.01 — 2024.06 | 주식 정보 제공 앱 (Spring Batch, JPA) | [GitLab](https://gitlab.com/deepit-labs) |
+| FitnessAI (Fitness In Service) | 2025.10 — 진행중 | 헬스장 통합 관리 플랫폼 (Spring Boot 멀티모듈, Toss Payments, Kakao OAuth) | [beta.fitness-trainer-assistant.ai.kr](https://beta.fitness-trainer-assistant.ai.kr) |
+| Deepit | 2023.01 — 2024.06 | 주식 정보 제공 앱 (Spring Batch, JPA, QueryDSL) | [GitLab](https://gitlab.com/deepit-labs) |
 | 학원 페이지 | 2020.10 — 2020.11 | 반응형 학원 소개 웹페이지 | [GitLab](https://gitlab.com/whor/educational-institute) |
+
+---
+
+## 교육 · 자격
+
+| 항목 | 내용 |
+|------|------|
+| 도쿄 코코로일본어학교 | 6개월 수료 |
+| JLPT N3 | 2025 취득 |
+| 정보처리기사 | 2018 취득 |
+| Java&Python 기반 응용SW 개발자 양성과정 | 2018, 7개월 |
+
+---
+
+## 그 외
+
+- **기술 블로그:** 2022년부터 운영, 70만+ 누적 조회수 — [diary-developer.tistory.com](https://diary-developer.tistory.com/category/개발%20이야기)
+- **워킹 홀리데이 · 일본:** 2024.12 — 2025.11 (11개월)
 
 ---
 
 ## 파일 구조
 
 ```
-career-description/
+portfolio/
 ├── index.html                          # 메인 포트폴리오 페이지
 ├── assets/
 │   ├── favicon.svg
