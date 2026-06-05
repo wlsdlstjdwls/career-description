@@ -1151,10 +1151,15 @@
         navLinks[a.getAttribute('href').slice(1)] = a;
       });
 
+      var navLinksContainer = document.querySelector('.topnav-links');
       function setActive(id) {
         Object.keys(navLinks).forEach(function (key) {
           navLinks[key].classList.toggle('active', key === id);
         });
+        var activeEl = navLinks[id];
+        if (activeEl && navLinksContainer) {
+          activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        }
       }
 
       var spy = new IntersectionObserver(function (entries) {
