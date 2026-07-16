@@ -285,7 +285,7 @@ window.RESUME = {
 
   side: [
     {
-      name: "FitnessAI",
+      name: "Fitness In Service",
       status: "진행중",
       period: "2025.10 — 진행중",
       link: { text: "beta.fitness-trainer-assistant.ai.kr", href: "https://beta.fitness-trainer-assistant.ai.kr" },

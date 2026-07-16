@@ -52,7 +52,7 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 
 | 프로젝트 | 기간 | 설명 | 링크 |
 |---------|------|------|------|
-| FitnessAI (Fitness In Service) | 2025.10 — 진행중 | 헬스장 통합 관리 플랫폼 (Spring Boot 멀티모듈, Toss Payments, Kakao OAuth) | [beta.fitness-trainer-assistant.ai.kr](https://beta.fitness-trainer-assistant.ai.kr) |
+| Fitness In Service | 2025.10 — 진행중 | 헬스장 통합 관리 플랫폼 (Spring Boot 멀티모듈, Toss Payments, Kakao OAuth) | [beta.fitness-trainer-assistant.ai.kr](https://beta.fitness-trainer-assistant.ai.kr) |
 | Deepit | 2023.01 — 2024.06 | 주식 정보 제공 앱 (Spring Batch, JPA, QueryDSL) | [GitLab](https://gitlab.com/deepit-labs) |
 | 학원 페이지 | 2020.10 — 2020.11 | 반응형 학원 소개 웹페이지 | [GitLab](https://gitlab.com/whor/educational-institute) |
 
