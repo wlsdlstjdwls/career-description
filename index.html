@@ -799,16 +799,18 @@
         <div class="card">
           <div class="proj-head"></div>
           <div class="proj-title" style="margin-top:8px;">할인권 프로모션</div>
-          <div class="proj-meta">2024.08 — 2024.10 · 3개월</div>
+          <div class="proj-meta">2024.06 — 2024.11 · 5개월</div>
           <div class="block-title">프로젝트 개요</div>
           <ul>
-            <li>매달 고객 실적(등급)에 따라 할인권 금액 자동 지급</li>
-            <li>주문 시 할인이 자동 적용되도록 프로세스 개발</li>
+            <li>고객 등급별로 반복 사용 가능한 잔액관리형 할인 수단(멤버십 할인권) 신설 — 할인율 5% 고정, 쿠폰과 달리 소진 전까지 매 주문마다 잔액에서 차감</li>
+            <li>매달 고객 등급 산정 후 할인권 자동 지급, 주문 시 할인이 자동 적용되도록 프로세스 개발</li>
           </ul>
           <div class="block-title">내 역할</div>
           <ul>
+            <li>설계서 개정 담당(v1.2/1.5/1.6) — 백오피스(SBO)·배치·DB 오브젝트 설계 및 개발</li>
             <li>고객 등급별 할인권 자동 지급 배치 개발</li>
-            <li>백오피스 주문 및 C/S 프로세스에 할인권 적용 로직 개발</li>
+            <li>백오피스 주문 및 C/S 프로세스에 할인권 적용 로직 개발, 전체/부분 취소 시 할인권 복원 로직 개발</li>
+            <li>할인권 소멸 임박(만료 1일 전/7일 전) 고객 SMS 안내 개발</li>
           </ul>
           <div class="block-title">성과</div>
           <ul>
@@ -820,7 +822,7 @@
         <div class="card">
           <div class="proj-head"></div>
           <div class="proj-title" style="margin-top:8px;">카드즉시할인 프로모션</div>
-          <div class="proj-meta">2024.01 — 2024.07 · 7개월</div>
+          <div class="proj-meta">2024.02 — 2024.08 · 6개월</div>
           <div class="block-title">프로젝트 개요</div>
           <ul>
             <li>청구할인의 한계를 개선하기 위해 즉시할인 프로세스를 신규 개발</li>
@@ -829,8 +831,11 @@
           </ul>
           <div class="block-title">내 역할</div>
           <ul>
+            <li>프로젝트 설계 및 관리 참여, 백오피스(SBO) 주문/CS 영역 개발 담당</li>
+            <li>가격할인→매체할인→쿠폰→일시불할인→카드즉시할인→적립→청구할인 순 다단계 프로모션 적용 로직 설계</li>
             <li>백오피스 인바운드 주문 프로세스에 카드 즉시할인 로직 신규 추가</li>
             <li>다중 채널(TV, ARS, 웹/앱) 영향 범위 검증 및 사이드 이펙트 최소화</li>
+            <li>카드+적립금 복합결제 부분취소 시 비정상 혜택 발생 케이스 별도 정책 설계·대응</li>
             <li>유닛/통합 테스트 케이스 작성, 안정성 확보</li>
           </ul>
           <div class="block-title">성과</div>
@@ -844,23 +849,34 @@
         <div class="card">
           <div class="proj-head"></div>
           <div class="proj-title" style="margin-top:8px;">전시 모듈화</div>
-          <div class="proj-meta">2023.10 — 2023.12 · 3개월</div>
+          <div class="proj-meta">2023.07 — 2023.10 · 3개월 · SK스토아</div>
           <div class="block-title">프로젝트 개요</div>
           <ul>
             <li>이벤트/특정 전시 등 정형화되지 않은 전시 페이지는 매번 신규 개발 필요</li>
             <li>개발자 리소스 소모 증가, 협력업체의 즉각적 전시 변경 어려움</li>
             <li>전시 모듈화를 통해 컴포넌트 단위로 조합 및 구성 가능하도록 개선</li>
+            <li>모듈코드 체계 설계 — <strong>모듈타입-상위배너타입-하위배너타입-상품타입-매체</strong> 5단 조합, 배너/상품 유형별 30여 개 세부 코드 정의</li>
           </ul>
           <div class="block-title">내 역할</div>
           <ul>
-            <li>백오피스 관리 기능 개발: 전시 컴포넌트 API 개발</li>
-            <li>프론트 조합 구조 설계 지원</li>
+            <li>백오피스 관리 기능 개발: 모듈등록·모듈매장등록·모듈컨텐츠전시관리 화면 및 전시 컴포넌트 API 개발</li>
+            <li>모듈/모듈매장/배너/상품 관리를 위한 신규 테이블 7종 DB 설계 참여</li>
+            <li>프론트 조합 구조 설계 지원 — MC/PC 모듈 상품·컨텐츠 Lazy Load 연동</li>
           </ul>
           <div class="block-title">성과</div>
           <ul>
             <li>반복 개발 리소스 절감</li>
             <li>전시 화면 리드타임 단축</li>
           </ul>
+          <div class="block-title">사용 기술</div>
+          <div class="chips" style="margin-top:8px;">
+            <span class="tag a">Java</span>
+            <span class="tag a">JavaScript</span>
+            <span class="tag c">Spring Framework</span>
+            <span class="tag c">Jquery</span>
+            <span class="tag c">Velocity</span>
+            <span class="tag g">Oracle</span>
+          </div>
         </div>
 
         <div class="card">
@@ -904,6 +920,28 @@
           <ul>
             <li>신규 ARS 채널 오픈 및 현재까지 안정적으로 운영 중</li>
             <li>상담원 개입 없이 처리 가능한 주문·C/S 범위 확대</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="proj-head"></div>
+          <div class="proj-title" style="margin-top:8px;">모바일원 구축</div>
+          <div class="proj-meta">2021.02 — 2021.06 · 4개월 · 쇼핑엔티 모바일 커머스 신규 구축</div>
+          <div class="block-title">프로젝트 개요</div>
+          <ul>
+            <li>쇼핑엔티 모바일 커머스 시스템 신규 구축 사업 중 커머스웨어 담당 영역</li>
+            <li>신규 모바일관리도구(MBO) 도입에 따른 BackOffice/SCM 데이터 동기화 및 API 개발</li>
+          </ul>
+          <div class="block-title">내 역할</div>
+          <ul>
+            <li>상품·MD·공통코드 등 10여 종 MBO-BackOffice/SCM 데이터 동기화 배치 개발</li>
+            <li>적립금 지급, SMS 발송(단건/대량), 시퀀스 채번, 반품(RM) 등록 등 API 개발</li>
+            <li>상품/SMS 발송 API 분석 및 인터페이스정의서 작성부터 설계·개발·자체검토까지 수행</li>
+          </ul>
+          <div class="block-title">성과</div>
+          <ul>
+            <li>담당 배치/API 전 항목 일정 내 개발 완료, 검수 통과</li>
+            <li>신규 관리도구 연동을 위한 데이터 정합성·동기화 체계 안정적 구축</li>
           </ul>
         </div>
 
