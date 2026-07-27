@@ -76,7 +76,7 @@ window.RESUME = {
 
   projects: [
     {
-      name: "프로모션 효율성 분석 AI 에이전트",
+      name: "프로모션 효율성 분석 자동화",
       status: "파일럿 운영중",
       featured: true,
       period: "2025.11 — 현재 · 사내 자체 과제",
