@@ -82,8 +82,8 @@ window.RESUME = {
       period: "2025.11 — 현재 · 사내 자체 과제",
       sections: [
         { title: "프로젝트 개요", items: [
-          "프로모션 실적 데이터를 AI가 자연어로 분석·해석하는 사내 자체 과제",
-          "Python(pandas/scikit-learn)으로 통계 계산 후 Claude · Gemini · Groq · Ollama 멀티 AI 프로바이더가 결과 해석 — AI에게 원시 데이터 전달 금지 원칙 준수",
+          "프로모션 실적 데이터 분석 결과를 자연어로 해석해 제공하는 사내 자체 과제",
+          "Python(pandas/scikit-learn)으로 통계 계산 후 Claude · Gemini · Groq · Ollama 멀티 AI 프로바이더가 결과 해석 — 원시 데이터 대신 통계 산출 결과만 활용하도록 설계하여 데이터 보호 기준을 반영",
           "FastAPI 백엔드 + React+Vite 프론트엔드, PostgreSQL, SSE 스트리밍 챗봇"
         ]},
         { title: "내 역할", items: [
@@ -92,12 +92,12 @@ window.RESUME = {
           "멀티 AI 프로바이더 라우팅 설계 — 모델명 패턴으로 Claude·Gemini·Groq·Ollama 자동 선택",
           "의도 분류 13종(lift / elasticity / trigger / forecasting / what-if 등) 챗봇 오케스트레이션",
           "이상 탐지·Root Cause 분석·RAG 서비스(768차원 코사인)·일일 리포트 자동 생성 구현",
-          "Claude 프롬프트 캐싱(policies/*.md + cache_control: ephemeral), AI 응답 전량 DB 저장",
+          "Claude 프롬프트 캐싱(policies/*.md + cache_control: ephemeral), 응답 전량 DB 저장",
           "Slack/SMTP 알림(24h 디바운스), APScheduler 백그라운드 스케줄러"
         ]},
         { title: "성과", items: [
           "Phase 0~P2-2 전 단계 완료, 파일럿 운영 단계 진행 중",
-          "16개 정책 파일 MD5 버저닝으로 AI 응답 재현성 확보",
+          "16개 정책 파일 MD5 버저닝으로 응답 재현성 확보",
           "프로모션 사전 시뮬레이션·백테스트·이상 탐지 자동화로 분석 리드타임 단축"
         ]}
       ],

@@ -27,7 +27,7 @@ Java/Spring과 Oracle 기반 대규모 백오피스 환경에서 성능 최적�
 |------|------|
 | Backend | Java, Spring MVC, Spring Boot, Spring Batch, JWT, Maven, Gradle |
 | Frontend | Javascript ES5/ES6, React, ExtJS, jQuery |
-| AI / LLM 에이전트 | LLM 에이전트 개발, Claude Code, Claude API |
+| AI · 자동화 | AI 자동화 개발, Claude Code, Claude API |
 | Data / Infra | Oracle, MariaDB, MyBatis, JPA, QueryDSL, Redis, AWS EC2, Docker, Nginx, Jenkins |
 
 ---
