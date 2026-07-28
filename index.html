@@ -364,6 +364,18 @@
       box-shadow: 0 0 6px rgba(45,220,148,.7);
       animation: pulse-dot 2s ease-in-out infinite;
     }
+    .proj-pdf-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-left: auto;
+      padding: 6px 13px; border-radius: 8px;
+      font-size: 12px; font-weight: 700; color: #fff;
+      background: var(--grad); border: none;
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(77,141,255,.35);
+      transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+    }
+    .proj-pdf-link:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(77,141,255,.5); }
+    .proj-pdf-link svg { flex-shrink: 0; }
     .block-title {
       font-family: var(--mono); font-size: 11px; font-weight: 500;
       letter-spacing: .1em; text-transform: uppercase;
@@ -1065,6 +1077,10 @@
           <div class="proj-head">
             <span class="proj-title">Fitness In Service</span>
             <span class="badge live"><span class="bdot"></span>실운영 중</span>
+            <a class="proj-pdf-link" href="assets/Fitness_In_Service_포트폴리오.pdf" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              포트폴리오 PDF
+            </a>
           </div>
           <div class="proj-meta">2025.10 — 진행중 / <a href="https://beta.fitness-trainer-assistant.ai.kr" target="_blank" rel="noopener">beta.fitness-trainer-assistant.ai.kr</a></div>
           <div class="block-title">프로젝트 개요</div>
