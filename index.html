@@ -472,6 +472,9 @@
       }
       .topnav, .hero::before { display: none !important; }
       .hero { min-height: auto; padding: 0 0 18px; page-break-after: avoid; }
+      #intro, #skills, #career, #projects, #side, #education, #etc {
+        page-break-before: always; break-before: page;
+      }
       .stat-num,
       .hero-role b { -webkit-text-fill-color: var(--accent) !important; background: none !important; color: var(--accent) !important; }
       .rail-num { -webkit-text-fill-color: var(--accent); }
@@ -479,7 +482,9 @@
       .rail-inner { position: static; display: flex; gap: 12px; align-items: baseline; margin-bottom: 8px; }
       .rail-num { font-size: 40px; }
       section { padding: 18px 0; border-color: #d7dce6; }
-      .card, .edu-item { box-shadow: none !important; break-inside: avoid; }
+      .card { box-shadow: none !important; break-inside: auto; }
+      .edu-item { box-shadow: none !important; break-inside: avoid; }
+      .card .proj-head, .card .block-title, .card ul, .card .chips { break-inside: avoid; }
       .card::before, .card.featured::after { display: none !important; }
       a { color: #2b5fb8; }
     }
