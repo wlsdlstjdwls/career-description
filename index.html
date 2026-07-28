@@ -18,7 +18,7 @@
       --accent: #4d8dff; --accent-2: #6aa6ff; --cyan: #57d2ff; --green: #34e29b;
       --grad: linear-gradient(116deg, #4d8dff 0%, #57d2ff 100%);
       --sans: "Pretendard", -apple-system, system-ui, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --mono: "JetBrains Mono", "Pretendard", ui-monospace, monospace;
       --serif: "Nanum Myeongjo", serif;
       --maxw: 1080px;
       --ease: cubic-bezier(.22,.7,.2,1);
@@ -252,6 +252,7 @@
       font-size: clamp(44px, 6vw, 64px);
       background: var(--grad); -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; letter-spacing: -.03em;
+      white-space: nowrap;
     }
     .stat-label { margin-top: 10px; font-size: 12px; color: var(--c-dim); letter-spacing: .04em; }
 
@@ -331,31 +332,36 @@
 
     .proj-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
     .proj-head:empty { display: none; }
-    .proj-title { font-size: 19px; font-weight: 700; color: var(--c-title); letter-spacing: -.01em; }
+    .proj-title { font-size: 19px; font-weight: 700; color: var(--c-title); letter-spacing: -.01em; line-height: 1.2; }
     .proj-meta { font-size: 13px; color: var(--c-dim); margin-top: 4px; margin-bottom: 4px; }
 
     .badge {
       display: inline-flex; align-items: center;
+      align-self: center; line-height: 1.2;
       font-family: var(--mono); font-size: 11px; font-weight: 600;
-      letter-spacing: .06em; text-transform: uppercase;
-      padding: 4px 11px; border-radius: 999px;
+      letter-spacing: .06em;
+      padding: 0; border-radius: 0; margin-left: 8px;
       color: var(--accent); background: transparent;
-      border: 1px solid rgba(77,141,255,.4);
+      border: none;
     }
     .badge.live {
-      color: #fff; vertical-align: middle;
-      background: linear-gradient(135deg, #0c9e6e 0%, #2ddc94 100%);
+      color: #17c47a; vertical-align: middle;
+      background: transparent;
       border: none;
-      box-shadow: 0 0 0 1px rgba(52,226,155,.25), 0 4px 18px rgba(45,220,148,.4);
+      box-shadow: none;
     }
     body.light .badge.live {
-      background: linear-gradient(135deg, #0a8a5e 0%, #17c47a 100%);
-      box-shadow: 0 0 0 1px rgba(10,138,94,.2), 0 4px 14px rgba(23,196,122,.35);
+      color: #0a8a5e;
+      background: transparent;
+      box-shadow: none;
+    }
+    .badge .bdot {
+      width: 6px; height: 6px; border-radius: 50%; margin-right: 7px;
+      flex-shrink: 0;
+      background: currentColor;
     }
     .badge.live .bdot {
-      width: 6px; height: 6px; border-radius: 50%; margin-right: 7px;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 0 6px rgba(255,255,255,.7);
+      box-shadow: 0 0 6px rgba(45,220,148,.7);
       animation: pulse-dot 2s ease-in-out infinite;
     }
     .block-title {
@@ -416,7 +422,7 @@
       width: 1px; background: var(--c-border);
     }
     .tl-date { font-family: var(--mono); font-size: 12px; color: var(--c-dim); letter-spacing: .03em; }
-    .tl-title { font-size: 17px; font-weight: 700; color: var(--c-title); margin-top: 3px; }
+    .tl-title { display: flex; align-items: center; flex-wrap: wrap; font-size: 17px; font-weight: 700; color: var(--c-title); margin-top: 3px; line-height: 1.2; }
     .tl-sub { font-size: 13px; color: var(--c-dim); margin-bottom: 8px; }
 
     /* 단순 리스트 (교육) */
@@ -583,16 +589,19 @@
             E-커머스 백엔드 전문 개발자로, <strong>상품/주문/프로모션/클레임</strong> 등 핵심 도메인을 6년 넘게 설계하고 개발하고 운영했습니다. <strong>Java/Spring</strong>과 <strong>Oracle</strong> 기반 대규모 백오피스 환경에서 성능 최적화와 안정성 확보, CI/CD 자동화까지 담당했습니다.<br /><br />
             최근에는 <strong>프로모션 효율성 분석 자동화 PoC</strong>와 <strong>영업/물류 도메인 분리(MSA 전환)</strong> 과제를 이어서 맡으며 범위를 넓히고 있고, 개인 사이드 프로젝트도 기획부터 배포까지 직접 진행하고 있습니다.
           </p>
+          <br />
           <div class="block-title" style="font-weight:700; font-size:13px;">서비스 전반을 바라보는 개발자</div>
           <p class="intro-text" style="font-size:15px;">
             보이는 ARS 서비스를 개발하던 초기에, 눈앞의 기능만 보고 기존 주소지 등록 로직을 그대로 재사용해 구현한 적이 있습니다. ARS는 다른 채널과 달리 매번 주소지를 새로 입력해야 하는 구조라는 차이를 충분히 고려하지 못했고, 운영 배포 직후 문제가 발생해 긴급 수정이 필요했습니다.<br /><br />
             그날 이후로는 개발하기 전에 기존 프로세스와 연관 시스템부터 먼저 확인하게 되었습니다. 카드즉시할인 프로젝트에서는 신규 할인 로직을 개발하며 기존 가격할인/청구할인과 함께 적용될 때의 순서까지 검증해 TV, ARS, 웹, 앱 전 채널에서 정책이 동일하게 동작하는지 확인했고, 현대백화점 플랫폼 통합 프로젝트에서는 바우처 정책이 바뀔 때 영향받는 쿼리를 전수 조사해 운영 리스크를 줄였습니다. 기능 하나를 만들 때도 그 앞뒤로 이어지는 서비스 전체를 먼저 바라보는 습관이 생겼습니다.
           </p>
+          <br />
           <div class="block-title" style="margin-top:18px; font-weight:700; font-size:13px;">서비스를 연결하는 개발자</div>
           <p class="intro-text" style="font-size:15px;">
             현장에서는 트레이너의 PT 세션 관리와 센터의 급여정산이 서로 분리된 채 운영되고 있었습니다. 매월 정산 기간마다 세션 기록과 정산 데이터를 일일이 대조하느라 2~3일씩 야근이 반복됐고, 그 와중에 계산 오류도 잦았습니다. 이 문제를 풀어주는 서비스를 직접 만들어보자는 생각이 들었습니다.<br /><br />
             PT 세션과 수업 진행 내용을 기록하면 그 내용으로 급여가 자동 계산되고, 계산된 급여가 바로 정산까지 이어지도록 프로세스를 하나의 흐름으로 묶었습니다. 이렇게 만든 서비스를 센터에 제안해 실제 운영에 도입했고, 수작업이 사라지면서 정산 시간이 크게 줄었고 오류도 눈에 띄게 줄었습니다. 이 성과를 바탕으로 처음 1개 지점에서 시작해 지금은 4개 지점까지 확대 운영하고 있습니다.
           </p>
+          <br />
           <div class="block-title" style="margin-top:18px; font-weight:700; font-size:13px;">핵심역량</div>
           <ul>
             <li>E-커머스 핵심 도메인(<strong>상품/주문/프로모션/클레임</strong>) End-to-End 설계, 개발 경험</li>
@@ -630,9 +639,10 @@
           <div class="skill-group">
             <div class="skill-group-title">AI / 자동화</div>
             <div class="chips">
-              <span class="tag key">AI 자동화 개발</span>
+              <span class="tag key">OpenAI</span>
               <span class="tag key">Claude Code</span>
               <span class="tag key">Claude API</span>
+              <span class="tag key">Claude Cowork</span>
             </div>
           </div>
           <div class="skill-group">
@@ -677,7 +687,7 @@
           <div class="timeline">
             <div class="tl-item">
               <div class="tl-date">2025.11 — 현재 / 재입사</div>
-              <div class="tl-title">커머스웨어 <span class="badge live"><span class="bdot"></span>재직 중</span></div>
+              <div class="tl-title">커머스웨어<span class="badge live"><span class="bdot"></span>재직 중</span></div>
               <div class="tl-sub">프로젝트팀 / 과장</div>
               <ul>
                 <li>현대백화점 NCP 구축 프로젝트 완료 (2025.11 — 2026.04) — 주문팀 프론트 API 담당</li>
@@ -751,7 +761,7 @@
         <div class="card">
           <div class="proj-head">
             <span class="proj-title">프로모션 효율성 분석 자동화</span>
-            <span class="badge">PoC 종료</span>
+            <span class="badge"><span class="bdot"></span>PoC 종료</span>
           </div>
           <div class="proj-meta">2026.05 — 2026.06 / 사내 자체 과제</div>
           <div class="block-title">프로젝트 개요</div>
